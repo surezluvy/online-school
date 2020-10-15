@@ -14,8 +14,7 @@
         <link rel="stylesheet" href="<?= BASEURL; ?>/css/fontawesome.css">
         <!--  javascript -->
         <script src="<?= BASEURL; ?>/js/simplebar.js"></script>         
-        <script src="<?= BASEURL; ?>/js/uikit.js"></script>  
-        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>       
+        <script src="<?= BASEURL; ?>/js/uikit.js"></script>         
     </head>     
     <body> 
         <!-- side nav-->         
@@ -325,54 +324,4 @@
                     </div>                     
                 </div>                 
             </nav>             
-            <ul class="uk-switcher switcher-container"> 
-                <li> 
-                    <div id="topic" class="topic1 hero-bg"> 
-                        <div uk-grid> 
-                            <div class="uk-width-1-2@m"> 
-                                <h1 class="uk-animation-fade"> <?= $data['judul'] ?> </h1> 
-                                <p> <?= $data['deskripsi'] ?> </p> 
-                                <div class="uk-visible@m uk-animation-slide-bottom-small" uk-grid> 
-                                    <div class="uk-width-1-3@m"> 
-                                        <img src="<?= BASEURL; ?>/images/icons/Video.png" class="img-small"> 
-                                        <span class="uk-text-middle uk-text-white"> <?= $data['jumlahGuru'] ?> Guru </span> 
-                                    </div>                                     
-                                    <div class="uk-width-1-3@m"> 
-                                        <img src="<?= BASEURL; ?>/images/icons/students.png" class="img-small"> 
-                                        <span class="uk-text-middle uk-text-white"> <?= $data['jumlahSiswa'] ?> Siswa </span> 
-                                    </div>                                     
-                                    <div class="uk-width-1-3@m"> 
-                                        <img src="<?= BASEURL; ?>/images/icons/Discussion.png" class="img-small"> 
-                                        <span class="uk-text-middle uk-text-white"> <?= $data['jumlahDiskusi'] ?> Diskusi </span> 
-                                    </div>                                     
-                                </div>                                 
-                            </div>                             
-                            <div class="uk-width-1-2@m uk-visible@m"> 
-                                <img src="<?= BASEURL; ?>/images/courses/course-catagory-hero.jpg" alt="" class="uk-align-right img-xxlarge"> 
-                            </div>                             
-                        </div>                         
-                    </div>                     
-                </li>               
-            </ul>             
-            <!-- mobile catagory button-->             
-            <button class="uk-button uk-hidden@m  mobile-catagory-button" type="button" uk-toggle="target: #tabs-moible; cls: tabs-moible"> Open subcatagory </button>             
-            <ul class="uk-subnav uk-subnav-pill tabs-moible-hidden" uk-switcher="connect: .switcher-container" id="tabs-moible"> 
-                <li class="uk-active"> 
-                    <a href="#" id="page1"> Web development </a> 
-                </li>                 
-                <li> 
-                    <a href="#">Mobile Apps </a> 
-                </li>                 
-                <li> 
-                    <a href="#">Game development </a> 
-                </li>                 
-                <li> 
-                    <a href="#">Software  </a> 
-                </li>                 
-                <li> 
-                    <a href="#">Development Tools </a> 
-                </li>                 
-                <li> 
-                    <a href="#">Ecommerce </a> 
-                </li>                 
-            </ul>
+            

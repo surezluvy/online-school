@@ -208,11 +208,6 @@
         <button   id="scrollTop" class="uk-animation-slide-bottom-medium"> <a href="#" class="uk-text-white" uk-totop uk-scroll></a> </button>      
         <!--  Night mood -->         
         <script>
-
-        $( "#page1" ).click(function() {
-          alert( "Handler for .click() called." );
-        });
-
         (function (window, document, undefined) {
           'use strict';
           if (!('localStorage' in window)) return;
