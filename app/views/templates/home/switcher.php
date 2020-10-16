@@ -5,7 +5,6 @@
             <div uk-grid> 
                 <div class="uk-width-1-2@m"> 
                     <h1 class="uk-animation-fade"> <?= $mapel['nama_mapel'] ?> </h1> 
-                    <h1 class="uk-animation-fade"> <?= $mapel['nama_mapel']?> </h1> 
                     <p> <?= $mapel['deskripsi_mapel'] ?> </p> 
                     <div class="uk-visible@m uk-animation-slide-bottom-small" uk-grid> 
                         <div class="uk-width-1-3@m"> 

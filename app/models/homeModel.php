@@ -6,6 +6,7 @@ class homeModel{
 	private $tableGuru = 'guru';
 	private $tableKelas = 'kelas';
 	private $tableSiswa = 'siswa';
+	private $tableBab = 'bab';
 	private $tablePilihan = 'pilihan_mapel';
 	private $db;
 
@@ -32,9 +33,6 @@ class homeModel{
 		return $this->db->single();
 	}
 
-	public function jumlahSiswaMtk(){
-		$this->db->query("SELECT COUNT(*) FROM ". $this->tablePilihan ." WHERE nama_mapel = 'Matematika' AND jenjang_kelas = 'SD'");
-
 	public function jumlahGuru(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tableGuru);
 		return $this->db->single();
@@ -42,9 +40,30 @@ class homeModel{
 
 	// ===========================================================================================================
 
+	public function jumlahKelas(){
+		$this->db->query("SELECT COUNT(*) FROM ". $this->tableKelas);
+		return $this->db->single();
+	}
+
+	public function getKelas(){
+		$this->db->query("SELECT * FROM ". $this->tableKelas);
+		return $this->db->resultSet();
+	}
+
+	// ===========================================================================================================
+
 	public function jumlahSiswa(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tableSiswa);
 		return $this->db->single();
+	}
+
+	public function jumlahSiswaMtk(){
+		$this->db->query("SELECT COUNT(*) FROM ". $this->tablePilihan ." WHERE nama_mapel = 'Matematika' AND jenjang_kelas = 'SD'");
+	}
+
+	public function babMtk(){
+		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE nama_mapel = 'Matematika'");
+		return $this->db->resultSet();
 	}
 
 }

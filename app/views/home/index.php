@@ -1,20 +1,12 @@
-<<<<<<< Updated upstream
-=======
-<pre><?php var_dump($data['kelas']) ?></pre>
->>>>>>> Stashed changes
+
 <ul class="uk-switcher switcher-container"> 
     <li> 
         <!--  Web development -->                     
         <div class="uk-container"> 
             <div class="uk-clearfix boundary-align"> 
-                <div class="uk-float-left section-heading none-border"> 
-<<<<<<< Updated upstream
-                    <h2>Browse Web development courses</h2> 
-                    <p>Adipisici elit, sed eiusmod tempor incidunt ut labore et</p> 
-=======
+                <div class="uk-float-left section-heading none-border">
                     <h2>Cari semua kursus <?= $data['mapel'][0]['nama_mapel'] ?> yang ada!</h2> 
-                    <p>Kami menyediakan kursus yang mantap.</p> 
->>>>>>> Stashed changes
+                    <p>Kami menyediakan kursus yang mantap.</p>
                 </div>                             
                 <div class="uk-float-right"> 
                     <a href="#" class="uk-link-reset uk-margin-small-right" uk-tooltip="title: Course card; pos: top-right"> <i class="fas fa-th-large"></i> </a> 
@@ -46,6 +38,7 @@
             
             <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-match uk-margin" uk-scrollspy="cls: uk-animation-slide-bottom-small; target: > div ; delay: 200" uk-grid> 
                 <!-- Course 1 -->
+                <?php foreach ($data['babMtk'] as $bab) { ?>
                 <div> 
                     <div class="uk-card-default uk-card-hover uk-card-small Course-card uk-inline-clip uk-transition-toggle" tabindex="0"> 
                         <div class="uk-transition-slide-right-small uk-position-top-right uk-padding-small uk-position-z-index"> 
@@ -57,41 +50,23 @@
                         <a href="Course-intro-one.html" class="uk-link-reset"> 
                             <img src="<?= BASEURL; ?>/images/courses/course-10.jpg" class="course-img"> 
                             <div class="uk-card-body"> 
-                                <h4>Vue.js The Complete Guide</h4> 
-                                <p> Lorem ipsum dolor sit amet tempor  consectetur adipiscing elit, sed do eiusmod tempor ... </p> 
+                                <h4><?= $bab['nama_bab'] ?></h4> 
+                                <p> <?= $bab['deskripsi_bab'] ?> </p> 
                                 <hr class="uk-margin-remove-top"> 
                                 <div class="uk-clearfix"> 
                                     <div class="uk-float-left"> 
-                                        <a class="Course-tags uk-margin-small-right" href="Course-all-tags.html"> <?= $data['kelas'][0]['jenjang_kelas'] ?> </a> 
-                                        <div uk-drop="pos: top-left;animation: uk-animation-slide-bottom-medium" class="uk-drop"> 
-                                            <div class="uk-card uk-card-body uk-card-default Course-tooltip-dark anglie-left-bottom-dark"> 
-<<<<<<< Updated upstream
-                                                <span>Lorem ipsum dolor sit amet tempor  consectetur adipiscing elit  sed do eiusmod tempor incididunt </span> 
-=======
-                                                <span><?= $data['kelas'][0]['deskripsi_kelas'] ?> </span> 
->>>>>>> Stashed changes
-                                            </div>                                                         
-                                        </div>                                                     
-                                        <a class="Course-tags" href="Course-all-tags.html"> <?= $data['mapel'][0]['nama_mapel'] ?> </a> 
-                                        <div uk-drop="pos: top-center;animation: uk-animation-slide-bottom-small" style="width:auto !important" class="uk-drop"> 
-                                            <div class="uk-card uk-padding-small uk-card-default Course-tooltip-dark anglie-center-bottom-dark"> 
-                                                <span> <?= $data['mapel'][0]['deskripsi_mapel'] ?> </span> 
-                                            </div>                                                         
-                                        </div>                                                     
+                                        <a class="Course-tags uk-margin-small-right" href="Course-all-tags.html"> <?= $bab['jenjang_kelas'] ?> </a>                           
+                                        <a class="Course-tags" href="Course-all-tags.html"> <?= $bab['nama_mapel'] ?> </a>
                                     </div>                                                 
                                     <div class="uk-float-right"> 
-                                        <a class="Course-tags Course-tags-more" href="Browse_all_webdevelopment.html"> </a> 
-                                        <div uk-drop="pos: top-right;animation: uk-animation-slide-bottom-medium" class="uk-drop"> 
-                                            <div class="uk-card uk-card-body uk-card-default Course-tooltip-dark anglie-right-bottom-dark"> 
-                                                <span>Lorem ipsum dolor sit <a href="#">consectetur</a> </span> 
-                                            </div>                                                         
-                                        </div>                                                     
+                                        <a class="Course-tags Course-tags-more" href="Browse_all_webdevelopment.html">   
                                     </div>                                                 
                                 </div>                                             
                             </div>                                         
                         </a>                                     
                     </div>                                 
-                </div>                         
+                </div>    
+                <?php } ?>                     
             </div>                         
             <a href="Browse-courses-single-page.html" class="uk-align-center uk-text-center uk-margin-large uk-h4 uk-link-heading"> Browse more Courses </a> 
         </div>                     
