@@ -3,11 +3,9 @@
 class Home extends Controller{
 
 	public function index(){
-<<<<<<< Updated upstream
 
 		$data['jumlahGuruMtk'] = $this->model('homeModel')->jumlahGuruMtk();
 		$data['jumlahSiswaMtk'] = $this->model('homeModel')->jumlahSiswaMtk();
-=======
 		$data['kelas'] = $this->model('homeModel')->getKelas();
 
 		$data['mapel'] = $this->model('homeModel')->getMapel();
@@ -16,7 +14,6 @@ class Home extends Controller{
 
 		$data['jumlahSiswa'] = $this->model('homeModel')->jumlahSiswa();
 
->>>>>>> Stashed changes
 		$data['jumlahDiskusiMtk'] = '13';
 		$data['mapel'] = $this->model('homeModel')->getMapel();
 		$this->view('templates/home/header', $data);

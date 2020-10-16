@@ -4,11 +4,8 @@
         <div class="topic1 hero-bg"> 
             <div uk-grid> 
                 <div class="uk-width-1-2@m"> 
-<<<<<<< Updated upstream
                     <h1 class="uk-animation-fade"> <?= $mapel['nama_mapel'] ?> </h1> 
-=======
                     <h1 class="uk-animation-fade"> <?= $mapel['nama_mapel']?> </h1> 
->>>>>>> Stashed changes
                     <p> <?= $mapel['deskripsi_mapel'] ?> </p> 
                     <div class="uk-visible@m uk-animation-slide-bottom-small" uk-grid> 
                         <div class="uk-width-1-3@m"> 
@@ -29,12 +26,9 @@
                     <img src="<?= BASEURL; ?>/images/courses/course-catagory-hero.jpg" alt="" class="uk-align-right img-xxlarge"> 
                 </div>                             
             </div>                         
-        </div>                     
-<<<<<<< Updated upstream
+        </div>             
     </li>       
-=======
     </li>   
->>>>>>> Stashed changes
     <?php } ?>
 </ul>             
 <!-- mobile catagory button-->             

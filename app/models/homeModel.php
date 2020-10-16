@@ -18,11 +18,8 @@ class homeModel{
 		return $this->db->resultSet();
 	}
 
-<<<<<<< Updated upstream
-=======
 	// ===========================================================================================================
 
->>>>>>> Stashed changes
 	public function getSemuaGuru(){
 		$this->db->query('SELECT * FROM (('. $this->tableGuru .'
 			INNER JOIN '. $this->tableMapel .' ON '. $this->tableGuru .'.id_mapel = '. $this->tableMapel .'.id_mapel)
@@ -30,7 +27,6 @@ class homeModel{
 		return $this->db->resultSet();
 	}
 
-<<<<<<< Updated upstream
 	public function jumlahGuruMtk(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tableGuru ." WHERE nama_mapel = 'Matematika' AND jenjang_kelas = 'SD'");
 		return $this->db->single();
@@ -38,7 +34,7 @@ class homeModel{
 
 	public function jumlahSiswaMtk(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tablePilihan ." WHERE nama_mapel = 'Matematika' AND jenjang_kelas = 'SD'");
-=======
+
 	public function jumlahGuru(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tableGuru);
 		return $this->db->single();
@@ -48,7 +44,6 @@ class homeModel{
 
 	public function jumlahSiswa(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tableSiswa);
->>>>>>> Stashed changes
 		return $this->db->single();
 	}
 
