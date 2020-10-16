@@ -131,7 +131,7 @@
                 <!-- mobile logo -->                 
                 <a class="uk-hidden@m uk-logo" href="index.html"> CoursePlus </a> 
                 <div class="uk-navbar-left uk-visible@m"> 
-                    <a <?php echo $data['color1'] ?> class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>" uk-tooltip="title: back-to-dashboard ; delay: 700 ; pos: bottom-left ;animation:   uk-animation-scale-up">My Dashboard</a> 
+                    <a <?php echo $data['color1'] ?> class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>" uk-tooltip="title: back-to-dashboard ; delay: 700 ; pos: bottom-left ;animation:   uk-animation-scale-up">My Dashboard</a>
                     <a <?php echo $data['color1'] ?> class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>">Cari semua pelajaran</a> 
                 </div>                 
                 <div class="uk-navbar-right tm-show-on-mobile uk-flex-right" id="tm-show-on-mobile"> 
