@@ -38,6 +38,11 @@ class adminModel{
 		return $this->db->resultSet();
 	}
 
+	public function getSiswaById($id){
+		$this->db->query('SELECT * FROM ' . $this->tableSiswa . ' WHERE id_siswa = ' . $id);
+		return $this->db->single();
+	}
+
 	// =========================================================================================
 
 	public function tambahSiswa($data){
@@ -52,6 +57,32 @@ class adminModel{
 		$this->db->bind('email', $data['email']);
 		$this->db->bind('password', $data['password']);
 		$this->db->bind('jenjang_kelas', $data['jenjang_kelas']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function editSiswa($data){
+		$query = "UPDATE siswa
+					SET nama_lengkap = :nama_lengkap, username = :username, email = :email, password = :password, jenjang_kelas = :jenjang_kelas WHERE id_siswa = :id_siswa";
+		$this->db->query($query);
+		$this->db->bind('id_siswa', $data['id_siswa']);
+		$this->db->bind('nama_lengkap', $data['nama_lengkap']);
+		$this->db->bind('username', $data['username']);
+		$this->db->bind('email', $data['email']);
+		$this->db->bind('password', $data['password']);
+		$this->db->bind('jenjang_kelas', $data['jenjang_kelas']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function hapusSiswa($id){
+		$query = "DELETE FROM siswa WHERE id_siswa = :id_siswa";
+		$this->db->query($query);
+		$this->db->bind('id_siswa', $id);
 
 		$this->db->execute();
 

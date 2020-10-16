@@ -1,5 +1,6 @@
 
 <div class="admin-content-inner"> 
+    <?php Flasher::flash(); ?>
     <div class="uk-flex-inline uk-flex-middle"> 
         <i class="fas fa-user icon-large uk-margin-right"></i> 
         <h4 class="uk-margin-remove"> Siswa </h4> 
@@ -115,10 +116,9 @@
                             <button class="uk-button uk-button-primary" type="button">Aksi</button>
                             <div uk-dropdown>
                                 <ul class="uk-nav uk-dropdown-nav">
-                                    <li class="uk-nav-header">Pilih aksi:</li>
-                                    <li><a href="#">1. Lihat</a></li>
-                                    <li><a href="#">2. Edit</a></li>
-                                    <li><a href="#">3. Hapus</a></li>
+                                    <li class="uk-nav-header">Pilih aksi (<?php echo $siswa['id_siswa'] ?>):</li>
+                                    <li><a href="<?php echo BASEURL ?>/admin/editSiswa/<?php echo $siswa['id_siswa'] ?>">1. Edit</a></li>
+                                    <li><a href="<?php echo BASEURL ?>/admin/hapusSiswa/<?php echo $siswa['id_siswa'] ?>">2. Hapus</a></li>
                                 </ul>
                             </div>   
                         </td>                                 
