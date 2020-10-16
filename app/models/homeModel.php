@@ -7,7 +7,7 @@ class homeModel{
 	private $tableKelas = 'kelas';
 	private $tableSiswa = 'siswa';
 	private $tableBab = 'bab';
-	private $tablePilihan = 'pilihan_mapel';
+	private $tablePilihan = 'pilihan_bab';
 	private $db;
 
 	public function __construct(){
@@ -19,46 +19,14 @@ class homeModel{
 		return $this->db->resultSet();
 	}
 
-	// ===========================================================================================================
-
-	public function getSemuaGuru(){
-		$this->db->query('SELECT * FROM (('. $this->tableGuru .'
-			INNER JOIN '. $this->tableMapel .' ON '. $this->tableGuru .'.id_mapel = '. $this->tableMapel .'.id_mapel)
-			INNER JOIN '. $this->tableKelas .' ON '. $this->tableGuru .'.id_kelas = '. $this->tableKelas .'.id_kelas);');
-		return $this->db->resultSet();
-	}
-
-	public function jumlahGuruMtk(){
-		$this->db->query("SELECT COUNT(*) FROM ". $this->tableGuru ." WHERE nama_mapel = 'Matematika' AND jenjang_kelas = 'SD'");
-		return $this->db->single();
-	}
-
 	public function jumlahGuru(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tableGuru);
 		return $this->db->single();
 	}
 
-	// ===========================================================================================================
-
-	public function jumlahKelas(){
-		$this->db->query("SELECT COUNT(*) FROM ". $this->tableKelas);
-		return $this->db->single();
-	}
-
-	public function getKelas(){
-		$this->db->query("SELECT * FROM ". $this->tableKelas);
-		return $this->db->resultSet();
-	}
-
-	// ===========================================================================================================
-
 	public function jumlahSiswa(){
 		$this->db->query("SELECT COUNT(*) FROM ". $this->tableSiswa);
 		return $this->db->single();
-	}
-
-	public function jumlahSiswaMtk(){
-		$this->db->query("SELECT COUNT(*) FROM ". $this->tablePilihan ." WHERE nama_mapel = 'Matematika' AND jenjang_kelas = 'SD'");
 	}
 
 	public function babMtk(){
@@ -70,5 +38,27 @@ class homeModel{
 		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE nama_mapel = 'Bahasa Indonesia'");
 		return $this->db->resultSet();
 	}
+
+	public function babById($id){
+		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE id_bab = $id");
+		return $this->db->single();
+	}
+
+	public function pilihan($id){
+		$this->db->query("SELECT COUNT(*) FROM ". $this->tablePilihan ." WHERE id_bab = $id");
+		return $this->db->single();
+	}
+
+	public function guruBab(){
+		$this->db->query("SELECT * FROM ". $this->tableGuru ." WHERE mengajar_mapel = 'Matematika'");
+		return $this->db->single();
+	}
+
+	public function siswaBab($id){
+		$this->db->query("SELECT * FROM ". $this->tableSiswa ." INNER JOIN ". $this->tablePilihan ." ON ". $this->tableSiswa .".id_siswa = ". $this->tablePilihan .".id_siswa WHERE id_bab = $id");
+		return $this->db->resultSet();
+	}
+
+	
 
 }

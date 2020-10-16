@@ -131,8 +131,12 @@
                 <!-- mobile logo -->                 
                 <a class="uk-hidden@m uk-logo" href="index.html"> CoursePlus </a> 
                 <div class="uk-navbar-left uk-visible@m"> 
-                    <a class="uk-navbar-item back-to-dashboard uk-button-text " href="#" uk-tooltip="title: back-to-dashboard ; delay: 700 ; pos: bottom-left ;animation:   uk-animation-scale-up">My Dashboard</a> 
-                    <a class="uk-navbar-item back-to-dashboard uk-button-text " href="#">Cari semua pelajaran</a> 
+                    <a class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>" uk-tooltip="title: back-to-dashboard ; delay: 700 ; pos: bottom-left ;animation:   uk-animation-scale-up">My Dashboard</a> 
+                    <a class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>">Cari semua pelajaran</a> 
+                    <?php if ($data['page'] == 1): ?>
+                        <a class="uk-navbar-item back-to-dashboard uk-button-text " href="#"><?php echo $data['bab']['nama_mapel'] ?></a> 
+                        <a class="uk-navbar-item back-to-dashboard uk-button-text " href="#"><?php echo $data['bab']['nama_bab'] ?></a> 
+                    <?php endif ?>
                 </div>                 
                 <div class="uk-navbar-right tm-show-on-mobile uk-flex-right" id="tm-show-on-mobile"> 
                     <!-- this will clouse after display user icon -->                     
@@ -142,7 +146,9 @@
                             <a href="#modal-full" uk-toggle><i class="fas fa-search icon-medium"></i></a> 
                         </li>                         
                         <li> 
-                            <!-- your courses -->                             
+                            <!-- your courses -->     
+                            <?php if ($_SESSION): ?>  
+
                             <a href="#"> <i class="fas fa-play uk-hidden@m"></i> <span class="uk-visible@m"> Pelajaran saya</span> </a> 
                             <div uk-dropdown="pos: top-right ;mode : click; animation: uk-animation-slide-bottom-medium" class="uk-dropdown border-radius-6  uk-dropdown-top-right tm-dropdown-large uk-padding-remove"> 
                                 <div class="uk-clearfix"> 
@@ -165,7 +171,7 @@
                                                         <p class="uk-text-bold uk-margin-remove">CSS3 Introduciton </p> 
                                                         <p class="uk-text-small uk-margin-remove"> by : Hamse mohamoud </p> 
                                                         <div class="uk-margin-small"> 
-                                                            <a class="Course-tags uk-margin-small-right   border-radius-6" href="#"> <i class="fas fa-play"></i> Course resume</a> 
+                                                            <a class="Course-tags uk-margin-small-right   border-radius-6" href="#"> <i class="fas fa-play"></i> Resume</a> 
                                                         </div>                                                         
                                                     </div>                                                     
                                                 </a>                                                 
@@ -275,7 +281,9 @@
                                     </div>                                     
                                 </div>                                 
                             </div>                             
-                        </li>                         
+                        </li> 
+
+                        <?php endif ?>                             
                         <li> 
                             <!-- User profile -->                             
                             <a href="#"> 
@@ -287,13 +295,23 @@
                                         <img src="<?= BASEURL; ?>/images/avatures/avature-2.png" alt="Image" class="uk-align-center uk-border-circle"> 
                                     </div>                                     
                                     <div class="uk-width-3-4"> 
-                                        <p class="uk-margin-remove-bottom uk-margin-small-top uk-text-bold"> Hamse Mohamoud  </p> 
-                                        <p class="uk-margin-remove-top uk-text-small uk-margin-small-bottom"> Bankook China</p> 
+                                        <p class="uk-margin-remove-bottom uk-margin-small-top uk-text-bold"> <?php if ($_SESSION) {
+                                            echo $_SESSION['full_name'];
+                                        } else{
+                                            echo "Guest";
+                                        } ?>  </p> 
+                                        <p class="uk-margin-remove-top uk-text-small uk-margin-small-bottom"> <?php if ($_SESSION) {
+                                            echo $_SESSION['alamat'];
+                                        } else{
+                                            echo "Daerah Indonesia";
+                                        } ?>  </p> 
                                     </div>                                     
                                 </div>                                 
                                 <ul class="uk-nav uk-dropdown-nav"> 
+                                    <?php if ($_SESSION): ?>
+
                                     <li> 
-                                        <a href="Profile.html"> <i class="fas fa-user uk-margin-small-right"></i> Profile</a> 
+                                        <a href="Profile.html"> <i class="fas fa-user uk-margin-small-right"></i> Profil</a> 
                                     </li>                                     
                                     <li> 
                                         <a href="#"> <i class="fas fa-envelope uk-margin-small-right"></i> Messages </a> 
@@ -302,11 +320,13 @@
                                         <a href="#"> <i class="fas fa-share uk-margin-small-right"></i> Invite freind</a> 
                                     </li>                                     
                                     <li> 
-                                        <a href="#"> <i class="fas fa-cog uk-margin-small-right"></i> Setting</a> 
-                                    </li>                                     
+                                        <a href="#"> <i class="fas fa-cog uk-margin-small-right"></i> Pengaturan</a> 
+                                    </li>        
+                                        
+                                    <?php endif ?>                             
                                     <li class="uk-nav-divider"></li>                                     
                                     <li> 
-                                        <a href="#"> <i class="fas fa-sign-out-alt uk-margin-small-right"></i> Log out</a> 
+                                        <a href="#"> <i class="fas fa-sign-out-alt uk-margin-small-right"></i> Masuk</a> 
                                     </li>                                     
                                 </ul>                                 
                             </div>                             

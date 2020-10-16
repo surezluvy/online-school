@@ -22,7 +22,7 @@
                     </div>                                 
                 </div>                             
                 <div class="uk-width-1-2@m uk-visible@m"> 
-                    <img src="<?= BASEURL; ?>/images/courses/course-catagory-hero.jpg" alt="" class="uk-align-right img-xxlarge"> 
+                    <img src="<?= BASEURL; ?>/images/home/Thumbnail.jpg" alt="" class="uk-align-right img-xxlarge" style="object-fit: fill"> 
                 </div>                             
             </div>                         
         </div>             
