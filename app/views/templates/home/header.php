@@ -133,10 +133,6 @@
                 <div class="uk-navbar-left uk-visible@m"> 
                     <a class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>" uk-tooltip="title: back-to-dashboard ; delay: 700 ; pos: bottom-left ;animation:   uk-animation-scale-up">My Dashboard</a> 
                     <a class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>">Cari semua pelajaran</a> 
-                    <?php if ($data['page'] == 1): ?>
-                        <a class="uk-navbar-item back-to-dashboard uk-button-text " href="#"><?php echo $data['bab']['nama_mapel'] ?></a> 
-                        <a class="uk-navbar-item back-to-dashboard uk-button-text " href="#"><?php echo $data['bab']['nama_bab'] ?></a> 
-                    <?php endif ?>
                 </div>                 
                 <div class="uk-navbar-right tm-show-on-mobile uk-flex-right" id="tm-show-on-mobile"> 
                     <!-- this will clouse after display user icon -->                     

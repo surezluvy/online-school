@@ -23,8 +23,8 @@
                                 <hr class="uk-margin-remove-top"> 
                                 <div class="uk-clearfix"> 
                                     <div class="uk-float-left"> 
-                                        <a class="Course-tags uk-margin-small-right" href="Course-all-tags.html"> <?= $bab['jenjang_kelas'] ?> </a>                           
-                                        <a class="Course-tags" href="Course-all-tags.html"> <?= $bab['nama_mapel'] ?> </a>
+                                        <a class="Course-tags uk-margin-small-right" href="<?= BASEURL ?>/home/tag/<?= $bab['id_kelas'] ?>/0/"> <?= $bab['jenjang_kelas'] ?> </a>                           
+                                        <a class="Course-tags" href="<?= BASEURL ?>/home/tag/0/<?= $bab['id_mapel'] ?>/"> <?= $bab['nama_mapel'] ?> </a>
                                     </div>                                                   
                                 </div>                                             
                             </div>                                         
@@ -58,8 +58,8 @@
                                 <hr class="uk-margin-remove-top"> 
                                 <div class="uk-clearfix"> 
                                     <div class="uk-float-left"> 
-                                        <a class="Course-tags uk-margin-small-right" href="Course-all-tags.html"> <?= $bab['jenjang_kelas'] ?> </a>                           
-                                        <a class="Course-tags" href="Course-all-tags.html"> <?= $bab['nama_mapel'] ?> </a>
+                                        <a class="Course-tags uk-margin-small-right" href="<?= BASEURL ?>/home/tag/<?= $bab['id_kelas'] ?>/0/"> <?= $bab['jenjang_kelas'] ?> </a>                           
+                                        <a class="Course-tags" href="<?= BASEURL ?>/home/tag/0/<?= $bab['id_mapel'] ?>/"> <?= $bab['nama_mapel'] ?> </a>
                                     </div>                                                   
                                 </div>                                             
                             </div>                                         

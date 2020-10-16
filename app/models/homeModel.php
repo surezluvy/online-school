@@ -7,6 +7,7 @@ class homeModel{
 	private $tableKelas = 'kelas';
 	private $tableSiswa = 'siswa';
 	private $tableBab = 'bab';
+	private $tableSub = 'sub_bab';
 	private $tablePilihan = 'pilihan_bab';
 	private $db;
 
@@ -30,12 +31,12 @@ class homeModel{
 	}
 
 	public function babMtk(){
-		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE nama_mapel = 'Matematika'");
+		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas INNER JOIN mapel ON bab.nama_mapel = mapel.nama_mapel WHERE id_mapel = 1");
 		return $this->db->resultSet();
 	}
 
 	public function babBi(){
-		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE nama_mapel = 'Bahasa Indonesia'");
+		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas INNER JOIN mapel ON bab.nama_mapel = mapel.nama_mapel WHERE id_mapel = 2");
 		return $this->db->resultSet();
 	}
 
@@ -59,6 +60,13 @@ class homeModel{
 		return $this->db->resultSet();
 	}
 
-	
+	public function tagByKelas($idKelas){
+		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas WHERE id_kelas = $idKelas");
+		return $this->db->resultSet();
+	}
 
+	public function tagByMapel($idMapel){
+		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableMapel ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableMapel .".jenjang_kelas WHERE id_mapel = $idMapel");
+		return $this->db->resultSet();
+	}
 }
