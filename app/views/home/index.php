@@ -1,11 +1,20 @@
+<<<<<<< Updated upstream
+=======
+<pre><?php var_dump($data['kelas']) ?></pre>
+>>>>>>> Stashed changes
 <ul class="uk-switcher switcher-container"> 
     <li> 
         <!--  Web development -->                     
         <div class="uk-container"> 
             <div class="uk-clearfix boundary-align"> 
                 <div class="uk-float-left section-heading none-border"> 
+<<<<<<< Updated upstream
                     <h2>Browse Web development courses</h2> 
                     <p>Adipisici elit, sed eiusmod tempor incidunt ut labore et</p> 
+=======
+                    <h2>Cari semua kursus <?= $data['mapel'][0]['nama_mapel'] ?> yang ada!</h2> 
+                    <p>Kami menyediakan kursus yang mantap.</p> 
+>>>>>>> Stashed changes
                 </div>                             
                 <div class="uk-float-right"> 
                     <a href="#" class="uk-link-reset uk-margin-small-right" uk-tooltip="title: Course card; pos: top-right"> <i class="fas fa-th-large"></i> </a> 
@@ -53,16 +62,20 @@
                                 <hr class="uk-margin-remove-top"> 
                                 <div class="uk-clearfix"> 
                                     <div class="uk-float-left"> 
-                                        <a class="Course-tags uk-margin-small-right" href="Course-all-tags.html"> JavaScript </a> 
+                                        <a class="Course-tags uk-margin-small-right" href="Course-all-tags.html"> <?= $data['kelas'][0]['jenjang_kelas'] ?> </a> 
                                         <div uk-drop="pos: top-left;animation: uk-animation-slide-bottom-medium" class="uk-drop"> 
                                             <div class="uk-card uk-card-body uk-card-default Course-tooltip-dark anglie-left-bottom-dark"> 
+<<<<<<< Updated upstream
                                                 <span>Lorem ipsum dolor sit amet tempor  consectetur adipiscing elit  sed do eiusmod tempor incididunt </span> 
+=======
+                                                <span><?= $data['kelas'][0]['deskripsi_kelas'] ?> </span> 
+>>>>>>> Stashed changes
                                             </div>                                                         
                                         </div>                                                     
-                                        <a class="Course-tags" href="Course-all-tags.html"> Beginner </a> 
+                                        <a class="Course-tags" href="Course-all-tags.html"> <?= $data['mapel'][0]['nama_mapel'] ?> </a> 
                                         <div uk-drop="pos: top-center;animation: uk-animation-slide-bottom-small" style="width:auto !important" class="uk-drop"> 
                                             <div class="uk-card uk-padding-small uk-card-default Course-tooltip-dark anglie-center-bottom-dark"> 
-                                                <span> Lorem ipsum dolor </span> 
+                                                <span> <?= $data['mapel'][0]['deskripsi_mapel'] ?> </span> 
                                             </div>                                                         
                                         </div>                                                     
                                     </div>                                                 
