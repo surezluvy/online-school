@@ -1,4 +1,5 @@
 <div class="admin-content-inner"> 
+    <?php Flasher::flash(); ?>
     <div class="uk-card-small uk-card-default"> 
         <div class="uk-card-header uk-text-bold">
             <i class="fas fa-user uk-margin-small-right"></i> Ubah data <?php echo $data['siswa']['nama_lengkap'] ?>

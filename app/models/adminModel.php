@@ -25,13 +25,13 @@ class adminModel{
 		$this->db->query('SELECT COUNT(*) FROM ' . $this->tableGuru);
 		return $this->db->single();
 	}
-
-	// ========================================================================================
 	
 	public function getSiswaTerbaru(){
 		$this->db->query('SELECT * FROM ' . $this->tableSiswa . ' LIMIT 7');
 		return $this->db->resultSet();
 	}
+
+	// ===============================================================================================
 
 	public function getAllSiswa(){
 		$this->db->query('SELECT * FROM ' . $this->tableSiswa);
@@ -42,8 +42,6 @@ class adminModel{
 		$this->db->query('SELECT * FROM ' . $this->tableSiswa . ' WHERE id_siswa = ' . $id);
 		return $this->db->single();
 	}
-
-	// =========================================================================================
 
 	public function tambahSiswa($data){
 		$query = "INSERT INTO siswa(poin, tanggal_daftar, nama_lengkap, username, email, password, jenjang_kelas)
@@ -87,5 +85,92 @@ class adminModel{
 		$this->db->execute();
 
 		return $this->db->rowCount();
+	}
+
+	public function cariSiswa(){
+		$keyword = $_POST['keyword'];
+		$query = "SELECT * FROM $this->tableSiswa WHERE
+					nama_lengkap LIKE '%$keyword%' 
+					OR jenjang_kelas LIKE '%$keyword%' 
+					OR alamat LIKE '%$keyword%' 
+					OR username LIKE '%$keyword%' 
+					OR email LIKE '%$keyword%' 
+					OR password LIKE '%$keyword%'";
+		$this->db->query($query);
+		return $this->db->resultSet();
+		
+		return $this->db->resultSet();
+	}
+
+	// ===============================================================================================
+
+	public function getAllGuru(){
+		$this->db->query('SELECT * FROM ' . $this->tableGuru);
+		return $this->db->resultSet();
+	}
+
+	public function getGuruById($id){
+		$this->db->query('SELECT * FROM ' . $this->tableGuru . ' WHERE id_guru = ' . $id);
+		return $this->db->single();
+	}
+
+	public function tambahGuru($data){
+		$query = "INSERT INTO guru(poin, tanggal_daftar, nama_lengkap, username, email, password, mengajar_kelas, mengajar_mapel)
+					VALUES
+					(:poin, :tanggal_daftar, :nama_lengkap, :username, :email, :password, :mengajar_kelas, :mengajar_mapel)";
+		$this->db->query($query);
+		$this->db->bind('poin', $data['poin']);
+		$this->db->bind('tanggal_daftar', $data['tanggal_daftar']);
+		$this->db->bind('nama_lengkap', $data['nama_lengkap']);
+		$this->db->bind('username', $data['username']);
+		$this->db->bind('email', $data['email']);
+		$this->db->bind('password', $data['password']);
+		$this->db->bind('mengajar_kelas', $data['mengajar_kelas']);
+		$this->db->bind('mengajar_mapel', $data['mengajar_mapel']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function editGuru($data){
+		$query = "UPDATE guru
+					SET nama_lengkap = :nama_lengkap, username = :username, email = :email, password = :password, mengajar_kelas = :mengajar_kelas, mengajar_mapel = :mengajar_mapel WHERE id_guru = :id_guru";
+		$this->db->query($query);
+		$this->db->bind('id_guru', $data['id_guru']);
+		$this->db->bind('nama_lengkap', $data['nama_lengkap']);
+		$this->db->bind('username', $data['username']);
+		$this->db->bind('email', $data['email']);
+		$this->db->bind('password', $data['password']);
+		$this->db->bind('mengajar_kelas', $data['mengajar_kelas']);
+		$this->db->bind('mengajar_mapel', $data['mengajar_mapel']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function hapusGuru($id){
+		$query = "DELETE FROM guru WHERE id_guru = :id_guru";
+		$this->db->query($query);
+		$this->db->bind('id_guru', $id);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function cariGuru(){
+		$keyword = $_POST['keyword'];
+		$query = "SELECT * FROM $this->tableGuru WHERE
+					nama_lengkap LIKE '%$keyword%' 
+					OR mengajar_kelas LIKE '%$keyword%' 
+					OR mengajar_mapel LIKE '%$keyword%' 
+					OR email LIKE '%$keyword%' 
+					OR password LIKE '%$keyword%'";
+		$this->db->query($query);
+		return $this->db->resultSet();
+		
+		return $this->db->resultSet();
 	}
 }

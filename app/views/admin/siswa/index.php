@@ -69,10 +69,10 @@
                 </form>                             
             </div>                         
             <div class="uk-width-auto@m uk-text-small"> 
-                <form> 
-                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Search user"> 
-                    <button class="uk-button uk-button-grey admin-btn">Search</button>                                 
-                </form>                             
+                <form method="post" action="cariSiswa"> 
+                    <input name="keyword" class="uk-input uk-form-width-medium" type="text" placeholder="Cari guru"> 
+                    <button class="uk-button uk-button-grey admin-btn" type="submit">Cari</button>                          
+                </form>                           
             </div>                         
         </div>                     
     </div>                 

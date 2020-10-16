@@ -26,10 +26,13 @@
                     <a href="<?php echo BASEURL ?>/admin"> <i class="fas fa-user"></i> Dashboard  </a>
                 </li>                 
                 <li> 
-                    <a href="admin-books.html"> <i class="fas fa-book-open"></i> Books    </a>
+                    <a href="<?php echo BASEURL ?>/admin/siswa"> <i class="fas fa-user"></i> Siswa  </a>
                 </li>                 
                 <li> 
-                    <a href="<?php echo BASEURL ?>/admin/siswa"> <i class="fas fa-user"></i> Users  </a>
+                    <a href="<?php echo BASEURL ?>/admin/guru"> <i class="fas fa-user"></i> Guru  </a>
+                </li>                 
+                <li> 
+                    <a href="admin-books.html"> <i class="fas fa-book-open"></i> Books    </a>
                 </li>                 
                 <li> 
                     <a href="admin-scripts.html"> <i class="fas fa-code"></i> Scripts    </a>
@@ -75,6 +78,9 @@
                         <li class="uk-active"> 
                             <a href="index.html">Dashboard</a> 
                         </li>                         
+                        <li> 
+                            <a href='#'><?= $data['bagian'] ?></a> 
+                        </li> 
                     </ul>                     
                 </div>                 
                 <!-- right navbar  -->                 
