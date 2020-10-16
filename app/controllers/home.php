@@ -2,7 +2,8 @@
 class Home extends Controller{
 
 	public function index(){
-		$data['title'] = "";
+		$data['color1'] = "";
+		$data['color2'] = "";
 
 		$data['babMtk'] = $this->model('homeModel')->babMtk();
 		$data['babBi'] = $this->model('homeModel')->babBi();
@@ -20,7 +21,8 @@ class Home extends Controller{
 	}
 
 	public function bab($id){
-		$data['title'] = " ";
+		$data['color1'] = "";
+		$data['color2'] = "";
 
 		$data['bab'] = $this->model('homeModel')->babById($id);
 		$data['pilihan'] = $this->model('homeModel')->pilihan($id);
@@ -34,8 +36,9 @@ class Home extends Controller{
 	}
 
 	public function tag($idKelas, $idMapel){
-		$data['warna1'] = "style='color: #3e474f'";
-		$data['warna2'] = "style='color: #728386'";
+		$data['color1'] = "style='color:#3e474f'";
+		$data['color2'] = "style='color:#728386'";
+
 		$data['bab'] = $this->model('homeModel')->babById($idKelas);
 		$data['tagByKelas'] = $this->model('homeModel')->tagByKelas($idKelas);
 		$data['tagByMapel'] = $this->model('homeModel')->tagByMapel($idMapel);

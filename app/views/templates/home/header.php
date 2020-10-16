@@ -24,7 +24,7 @@
             <div id="side-nav"> 
                 <div class="side-nav-bg"></div>                 
                 <div class="uk-navbar-left uk-visible@s"> 
-                    <a class="uk-logo" href="Homepage.html"> <i class="fas fa-graduation-cap"></i> </a> 
+                    <a class="uk-logo" href="<?= BASEURL ?>"> <i class="fas fa-graduation-cap"></i> </a> 
                 </div>                 
                 <ul>          
                     <li> 
@@ -131,21 +131,21 @@
                 <!-- mobile logo -->                 
                 <a class="uk-hidden@m uk-logo" href="index.html"> CoursePlus </a> 
                 <div class="uk-navbar-left uk-visible@m"> 
-                    <a class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>" uk-tooltip="title: back-to-dashboard ; delay: 700 ; pos: bottom-left ;animation:   uk-animation-scale-up">My Dashboard</a> 
-                    <a class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>">Cari semua pelajaran</a> 
+                    <a <?php echo $data['color1'] ?> class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>" uk-tooltip="title: back-to-dashboard ; delay: 700 ; pos: bottom-left ;animation:   uk-animation-scale-up">My Dashboard</a> 
+                    <a <?php echo $data['color1'] ?> class="uk-navbar-item back-to-dashboard uk-button-text " href="<?= BASEURL ?>">Cari semua pelajaran</a> 
                 </div>                 
                 <div class="uk-navbar-right tm-show-on-mobile uk-flex-right" id="tm-show-on-mobile"> 
                     <!-- this will clouse after display user icon -->                     
                     <span class="uk-hidden@m tm-mobile-user-close-icon uk-align-right" uk-toggle="target: #tm-show-on-mobile; cls: tm-show-on-mobile-active"><i class="fas fa-times icon-large"></i></span> 
                     <ul class="uk-navbar-nav uk-flex-middle"> 
                         <li> 
-                            <a href="#modal-full" uk-toggle><i class="fas fa-search icon-medium"></i></a> 
+                            <a <?php echo $data['color2'] ?> href="#modal-full" uk-toggle><i class="fas fa-search icon-medium"></i></a> 
                         </li>                         
                         <li> 
                             <!-- your courses -->     
                             <?php if ($_SESSION): ?>  
 
-                            <a href="#"> <i class="fas fa-play uk-hidden@m"></i> <span class="uk-visible@m"> Pelajaran saya</span> </a> 
+                            <a <?php echo $data['color2'] ?> href="#"> <i class="fas fa-play uk-hidden@m"></i> <span class="uk-visible@m"> Pelajaran saya</span> </a> 
                             <div uk-dropdown="pos: top-right ;mode : click; animation: uk-animation-slide-bottom-medium" class="uk-dropdown border-radius-6  uk-dropdown-top-right tm-dropdown-large uk-padding-remove"> 
                                 <div class="uk-clearfix"> 
                                     <div class="uk-float-left"> 
@@ -194,7 +194,7 @@
                         </li>                         
                         <li> 
                             <!-- messages -->                             
-                            <a href="#"><i class="fas fa-envelope icon-large"></i></a> 
+                            <a <?php echo $data['color2'] ?> href="#"><i class="fas fa-envelope icon-large"></i></a> 
                             <div uk-dropdown="pos: top-right ;mode : click; animation: uk-animation-slide-bottom-small" class="uk-dropdown uk-dropdown-top-right  tm-dropdown-medium border-radius-6 uk-padding-remove uk-box-shadow-large angle-top-right"> 
                                 <h5 class="uk-padding-small uk-margin-remove uk-text-bold  uk-text-left"> Messages </h5> 
                                 <a href="#" class="uk-position-top-right uk-link-reset"> <i class="fas fa-trash uk-align-right   uk-text-small uk-padding-small"> Clear all</i> </a> 
@@ -247,7 +247,7 @@
                         </li>                         
                         <li> 
                             <!-- Notivications -->                             
-                            <a href="#"><i class="fas fa-bell icon-large"></i></a> 
+                            <a <?php echo $data['color2'] ?> href="#"><i class="fas fa-bell icon-large"></i></a> 
                             <div uk-dropdown="pos: top-right ;mode : hover; animation: uk-animation-slide-bottom-small" class="uk-dropdown uk-dropdown-top-right  tm-dropdown-small border-radius-6 uk-padding-remove uk-box-shadow-large angle-top-right"> 
                                 <h5 class="uk-padding-small uk-margin-remove uk-text-bold  uk-text-left"> Notivications </h5> 
                                 <a href="#" class="uk-position-top-right uk-link-reset"> <i class="fas fa-trash uk-align-right   uk-text-small uk-padding-small"> Clear all</i></a> 
@@ -282,7 +282,7 @@
                         <?php endif ?>                             
                         <li> 
                             <!-- User profile -->                             
-                            <a href="#"> 
+                            <a <?php echo $data['color2'] ?> href="#"> 
                                 <img src="<?= BASEURL; ?>/images/avatures/avature-2.png" alt="" class="uk-border-circle user-profile-tiny"> 
                             </a>                             
                             <div uk-dropdown="pos: top-right ;mode : click ;animation: uk-animation-slide-right" class="uk-dropdown  uk-dropdown-top-right  tm-dropdown-small border-radius-6 angle-top-right"> 
