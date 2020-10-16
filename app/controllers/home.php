@@ -13,6 +13,7 @@ class Home extends Controller{
 		$data['mapel'] = $this->model('homeModel')->getMapel();
 
 		$data['babMtk'] = $this->model('homeModel')->babMtk();
+		$data['babBi'] = $this->model('homeModel')->babBi();
 
 		$data['jumlahGuru'] = $this->model('homeModel')->jumlahGuru();
 

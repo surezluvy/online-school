@@ -66,4 +66,9 @@ class homeModel{
 		return $this->db->resultSet();
 	}
 
+	public function babBi(){
+		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE nama_mapel = 'Bahasa Indonesia'");
+		return $this->db->resultSet();
+	}
+
 }
