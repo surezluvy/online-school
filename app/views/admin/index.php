@@ -34,12 +34,16 @@
                 </div>                                 
                 <div class="uk-card-body uk-padding-remove-top"> 
                     <div class="uk-child-width-1-4@m uk-child-width-1-2 uk-grid-collapse uk-flex-center"  uk-scrollspy="target: > div; cls:uk-animation-scale-up; delay: 100" uk-grid>
-                        <?php foreach ($data['siswaTerbaru'] as $siswa): ?>
+                        <?php foreach ($data['siswaTerbaru'] as $siswa):
+
+                        $pisah = preg_split("/(,?\s+)|((?<=[a-z])(?=\d))|((?<=\d)(?=[a-z]))/i", $siswa['nama_lengkap']);
+                        $nama_panggilan = $pisah[0];
+                        ?>
                         <div>
                             <a href="Profile.html" class="uk-link-reset">
                                 <div class="uk-padding-remove   uk-text-center"> 
                                     <img alt="Image" class="uk-width-2-3 uk-margin-top uk-margin-small-bottom uk-border-circle uk-align-center uk-box-shadow-large" src="<?= BASEURL; ?>/images/avatures/avature-1.png">
-                                        <h5 class="uk-margin-remove-bottom uk-margin-remove-top "><?php echo $siswa['nama_panggilan'] ?></h5>  
+                                        <h5 class="uk-margin-remove-bottom uk-margin-remove-top "><?php echo $nama_panggilan ?></h5>  
                                 </div> 
                             </a>                          
                         </div> 

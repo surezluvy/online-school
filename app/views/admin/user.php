@@ -1,67 +1,56 @@
+
 <div class="admin-content-inner"> 
     <div class="uk-flex-inline uk-flex-middle"> 
         <i class="fas fa-user icon-large uk-margin-right"></i> 
-        <h4 class="uk-margin-remove"> Users </h4> 
-        <button class="uk-button uk-button-success uk-margin-medium-left admin-btn" href="#create-model" uk-tooltip="title: Create New User ; delay: 500 ; pos: top ;animation:	uk-animation-scale-up" uk-toggle> 
-            <i class="fas fa-user-plus"></i> add new 
+        <h4 class="uk-margin-remove"> Siswa </h4> 
+        <button class="uk-button uk-button-success uk-margin-medium-left admin-btn" href="#create-model" uk-tooltip="title: Create New User ; delay: 500 ; pos: top ;animation: uk-animation-scale-up" uk-toggle> 
+            <i class="fas fa-user-plus"></i> tambah baru 
         </button>                     
         <!-- model -->                     
         <div id="create-model" uk-modal> 
             <div class="uk-modal-dialog"> 
                 <button class="uk-modal-close-default uk-padding-small" type="button" uk-close></button>                             
                 <div class="uk-modal-header"> 
-                    <h4> Create New User   </h4> 
+                    <h4> Tambah siswa baru   </h4> 
                 </div>                             
                 <div class="uk-modal-body"> 
-                    <div uk-grid> 
-                        <div class="uk-width-1-3@m"> 
-                            <form action="/file-upload" class="dropzone  id=" y-awesome-dropzone""> 
-                                <div class="fallback"> 
-                                    <input name="file" type="file" multiple/> 
-                                </div>                                             
-                            </form>                                         
-                            <div class="uk-margin"> 
-                                <span class="uk-text-middle uk-text-small"> Recomended 50 x 50</span> 
-                                <div uk-form-custom="" class="uk-form-custom"> 
-                                    <input type="file"> 
-                                    <span class="uk-link">upload</span> 
-                                </div>                                             
-                            </div>                                         
-                        </div>                                     
-                        <div class="uk-width-2-3@m"> 
-                            <form> 
+                    <div uk-grid>                                    
+                        <div class="uk-width-2-1@m"> 
+                            <form method="POST" action="<?php echo BASEURL ?>/admin/tambahSiswa"> 
+                                <input readonly="" type="hidden" name="poin" value="0">
+                                <input readonly="" type="hidden" name="tanggal_daftar" value="<?php echo date("Y-m-d") ?>">
                                 <div class="uk-margin"> 
-                                    <label> Name </label>                                                 
-                                    <input class="uk-input uk-form-width-large" placeholder="Name" type="text"> 
-                                </div>                                             
+                                    <label> Nama Lengkap </label>                                                 
+                                    <input required="" name="nama_lengkap" class="uk-input uk-form-width-large" placeholder="Nama Lengkap" type="text"> 
+                                </div>  
                                 <div class="uk-margin"> 
                                     <label> Username </label>                                                 
-                                    <input class="uk-input uk-form-width-large" placeholder="Username" type="text"> 
-                                </div>                                             
+                                    <input required="" name="username" class="uk-input uk-form-width-large" placeholder="Nama Lengkap" type="text"> 
+                                </div>                   
                                 <div class="uk-margin"> 
                                     <label> Email </label>                                                 
-                                    <input class="uk-input uk-form-width-large" placeholder="name@example.com" type="text"> 
-                                </div>                                             
+                                    <input required="" name="email" class="uk-input uk-form-width-large" placeholder="Nama Lengkap" type="email"> 
+                                </div>                
                                 <div class="uk-margin"> 
                                     <label> Password </label>                                                 
-                                    <input class="uk-input uk-form-width-large" placeholder="password" type="password"> 
-                                </div>                                             
-                                <div class="uk-margin"> 
-                                    <label> Level</label>                                                 
-                                    <select class="uk-select"> 
-                                        <option> Begginers </option>                                                     
-                                        <option> Intermediate </option>                                                     
-                                        <option> Advance </option>                                                     
-                                    </select>                                                 
-                                </div>                                             
-                            </form>                                         
+                                    <input required="" name="password" class="uk-input uk-form-width-large" placeholder="Nama Lengkap" type="text"> 
+                                </div>        
+                                <div class="uk-margin">
+                                    <label> Kelas </label>   
+                                    <select required="" class="uk-select" name="jenjang_kelas">
+                                        <option value="SD">SD</option>
+                                        <option value="SMP">SMP</option>
+                                    </select>
+                                </div>                                         
                         </div>                                     
                     </div>                                 
                 </div>                             
                 <div class="uk-modal-footer uk-text-right"> 
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>                                 
-                    <button class="uk-button uk-button-primary" type="button">Save</button>                                 
-                </div>                             
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Batal</button>                                 
+                    <button class="uk-button uk-button-primary" type="submit" name="simpan">Simpan</button>                                 
+                </div>      
+
+                </form>                       
             </div>                         
         </div>                     
     </div>                 
@@ -90,161 +79,55 @@
         <table class="uk-table uk-table-hover uk-table-middle uk-table-divider"> 
             <thead> 
                 <tr class="uk-text-small uk-text-bold"> 
-                    <th></th> 
-                    <th>Avature</th> 
-                    <th>Name</th> 
+                    <th>No</th> 
+                    <th>Tanggal Daftar</th>
+                    <th>Poin</th>
+                    <th>Kelas</th>  
+                    <th>Nama Lengkap</th>
+                    <th>JK</th> 
+                    <th>Alamat</th> 
+                    <th>Username</th> 
                     <th>Email</th> 
-                    <th>Created</th> 
-                    <th>Membership</th> 
-                    <th>Role</th> 
-                    <th>Expand + Link</th> 
+                    <th>Password</th>
+                    <th></th>
                 </tr>                             
             </thead>                         
             <tbody> 
-                <tr> 
-                    <td>
-                        <input class="uk-checkbox" type="checkbox">
-                    </td>                                 
-                    <td>
-                        <img class="uk-preserve-width uk-border-circle user-profile-small" src="../assets/images/avatures/avature-1.png" width="50" alt="">
-                    </td>                                 
-                    <td> username  </td> 
-                    <td> Username @gmail.com </td> 
-                    <td> 12/12/2020 </td> 
-                    <td>Paid</td> 
-                    <td>Administrater</td> 
-                    <td class="uk-flex-inline uk-flex-middle"> 
-                        <button class="uk-button uk-button-success admin-table-btn"> 
-                            <i class="fas fa-eye uk-visible@m"></i> View 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Edit 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Delelt 
-                        </button>                                     
-                    </td>                                 
-                </tr>                             
-                <tr> 
-                    <td>
-                        <input class="uk-checkbox" type="checkbox">
-                    </td>                                 
-                    <td>
-                        <img class="uk-preserve-width uk-border-circle user-profile-small" src="../assets/images/avatures/avature-4.png" width="50" alt="">
-                    </td>                                 
-                    <td> username  </td> 
-                    <td> Username @gmail.com </td> 
-                    <td> 12/12/2020 </td> 
-                    <td> Free  </td> 
-                    <td>Registered</td> 
-                    <td class="uk-flex-inline uk-flex-middle"> 
-                        <button class="uk-button uk-button-success admin-table-btn"> 
-                            <i class="fas fa-eye uk-visible@m"></i> View 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Edit 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Delelt 
-                        </button>                                     
-                    </td>                                 
-                </tr>                             
-                <tr> 
-                    <td>
-                        <input class="uk-checkbox" type="checkbox">
-                    </td>                                 
-                    <td>
-                        <img class="uk-preserve-width uk-border-circle user-profile-small" src="../assets/images/avatures/avature-2.png" width="50" alt="">
-                    </td>                                 
-                    <td> username  </td> 
-                    <td> Username @gmail.com </td> 
-                    <td> 12/12/2020 </td> 
-                    <td> Paid  </td> 
-                    <td> moderator </td> 
-                    <td class="uk-flex-inline uk-flex-middle"> 
-                        <button class="uk-button uk-button-success admin-table-btn"> 
-                            <i class="fas fa-eye uk-visible@m"></i> View 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Edit 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Delelt 
-                        </button>                                     
-                    </td>                                 
-                </tr>                             
-                <tr> 
-                    <td>
-                        <input class="uk-checkbox" type="checkbox">
-                    </td>                                 
-                    <td>
-                        <img class="uk-preserve-width uk-border-circle user-profile-small" src="../assets/images/avatures/avature-3.png" width="50" alt="">
-                    </td>                                 
-                    <td> username  </td> 
-                    <td> Username @gmail.com </td> 
-                    <td> 12/12/2020 </td> 
-                    <td> Free  </td> 
-                    <td> Registered </td> 
-                    <td class="uk-flex-inline uk-flex-middle"> 
-                        <button class="uk-button uk-button-success admin-table-btn"> 
-                            <i class="fas fa-eye uk-visible@m"></i> View 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Edit 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Delelt 
-                        </button>                                     
-                    </td>                                 
-                </tr>                             
-                <tr> 
-                    <td>
-                        <input class="uk-checkbox" type="checkbox">
-                    </td>                                 
-                    <td>
-                        <img class="uk-preserve-width uk-border-circle user-profile-small" src="../assets/images/avatures/avature-4.png" width="50" alt="">
-                    </td>                                 
-                    <td> username  </td> 
-                    <td> Username @gmail.com </td> 
-                    <td> 12/12/2020 </td> 
-                    <td> Paid  </td> 
-                    <td>editor</td> 
-                    <td class="uk-flex-inline uk-flex-middle"> 
-                        <button class="uk-button uk-button-success admin-table-btn"> 
-                            <i class="fas fa-eye uk-visible@m"></i> View 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Edit 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Delelt 
-                        </button>                                     
-                    </td>                                 
-                </tr>                             
-                <tr> 
-                    <td>
-                        <input class="uk-checkbox" type="checkbox">
-                    </td>                                 
-                    <td>
-                        <img class="uk-preserve-width uk-border-circle user-profile-small" src="../assets/images/avatures/avature-5.png" width="50" alt="">
-                    </td>                                 
-                    <td> username  </td> 
-                    <td> Username @gmail.com </td> 
-                    <td> 12/12/2020 </td> 
-                    <td> Free  </td> 
-                    <td>Registered</td> 
-                    <td class="uk-flex-inline uk-flex-middle"> 
-                        <button class="uk-button uk-button-success admin-table-btn"> 
-                            <i class="fas fa-eye uk-visible@m"></i> View 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Edit 
-                        </button>                                     
-                        <button class="uk-button uk-button-danger admin-table-btn"> 
-                            <i class="fas fa-trash uk-visible@m"></i> Delelt 
-                        </button>                                     
-                    </td>                                 
-                </tr>                             
+                <?php
+                    $no = 1; 
+                    foreach ($data['siswa'] as $siswa):
+                ?>
+                    
+                    <tr> 
+                        <td>
+                            <?php echo $no; ?>
+                        </td>                                             
+                        <td class="uk-align-center"> <?php echo $siswa['tanggal_daftar'] ?>  </td> 
+                        <td> <?php echo $siswa['poin'] ?> </td> 
+                        <td><?php echo $siswa['jenjang_kelas'] ?></td>
+                        <td> <?php echo $siswa['nama_lengkap'] ?> </td> 
+                        <td><?php echo $siswa['jenis_kelamin'] ?></td> 
+                        <td><?php echo $siswa['alamat'] ?></td> 
+                        <td><?php echo $siswa['username'] ?></td>
+                        <td><?php echo $siswa['email'] ?></td>
+                        <td><?php echo $siswa['password'] ?></td>    
+                        <td class="uk-flex-inline uk-flex-middle"> 
+                            <button class="uk-button uk-button-primary" type="button">Aksi</button>
+                            <div uk-dropdown>
+                                <ul class="uk-nav uk-dropdown-nav">
+                                    <li class="uk-nav-header">Pilih aksi:</li>
+                                    <li><a href="#">1. Lihat</a></li>
+                                    <li><a href="#">2. Edit</a></li>
+                                    <li><a href="#">3. Hapus</a></li>
+                                </ul>
+                            </div>   
+                        </td>                                 
+                    </tr>  
+
+                <?php 
+                    $no++; 
+                    endforeach 
+                ?>                    
             </tbody>                         
         </table>                     
     </div>                 
@@ -274,4 +157,4 @@
         </ul>                     
         <p> you are showing 1 to 12 entries</p> 
     </div>                 
-</div>             
+</div>

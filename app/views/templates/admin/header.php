@@ -29,7 +29,7 @@
                     <a href="admin-books.html"> <i class="fas fa-book-open"></i> Books    </a>
                 </li>                 
                 <li> 
-                    <a href="<?php echo BASEURL ?>/admin/user"> <i class="fas fa-user"></i> Users  </a>
+                    <a href="<?php echo BASEURL ?>/admin/siswa"> <i class="fas fa-user"></i> Users  </a>
                 </li>                 
                 <li> 
                     <a href="admin-scripts.html"> <i class="fas fa-code"></i> Scripts    </a>

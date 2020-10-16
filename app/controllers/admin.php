@@ -13,12 +13,23 @@ class Admin extends Controller{
 		$this->view('templates/admin/footer');
 	}
 
-	public function user(){
+	public function siswa(){
 
 		$data['siswa'] = $this->model('adminModel')->getAllSiswa();
 
 		$this->view('templates/admin/header', $data);
 		$this->view('admin/user', $data);
 		$this->view('templates/admin/footer');
+	}
+
+	public function tambahSiswa(){
+
+		if ($this->model('adminModel')->tambahSiswa($_POST) > 0) {
+			Flasher::setFlash('Berhasil', 'ditambahkan', 'primary');
+			header('Location: ' . BASEURL . '/admin/siswa');
+			exit;
+		} else{
+			Flasher::setFlash('Gagal', 'ditambahkan', 'danger');
+		}
 	}
 }
