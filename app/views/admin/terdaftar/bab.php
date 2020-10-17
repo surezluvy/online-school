@@ -18,7 +18,7 @@
                 </form>                             
             </div>                         
             <div class="uk-width-auto@m uk-text-small"> 
-                <form method="post" action="<?php echo BASEURL ?>/admin/terdaftarBab/cariTerdaftarBab"> 
+                <form method="post" action="<?php echo BASEURL ?>/admin/cariTerdaftarBab/<?php echo $data['mapelTerdaftarBab'][0]['id_mapel'] ?>"> 
                     <input name="keyword" class="uk-input uk-form-width-medium" type="text" placeholder="Cari mapel"> 
                     <button class="uk-button uk-button-grey admin-btn" type="submit">Cari</button>                          
                 </form>                             

@@ -452,10 +452,24 @@ class adminModel{
 	}
 
 	public function cariAllMapelTerdaftarBab($id){
+		$keyword = $_POST['keyword'];
 		$this->db->query("SELECT * FROM pilihan_bab LEFT JOIN mapel ON pilihan_bab.id_mapel = mapel.id_mapel 
 			LEFT JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa
 			LEFT JOIN bab ON pilihan_bab.id_bab = bab.id_bab
-			WHERE nama_bab LIKE '%$keyword%'");
+			WHERE mapel.id_mapel = $id AND 
+			nama_bab LIKE '%$keyword%' 
+			OR nama_lengkap LIKE '%$keyword%'");
+		return $this->db->resultSet();
+	}
+
+	public function cariAllMapelTerdaftarSub($id){
+		$keyword = $_POST['keyword'];
+		$this->db->query("SELECT * FROM pilihan_sub LEFT JOIN mapel ON pilihan_sub.id_mapel = mapel.id_mapel 
+			LEFT JOIN siswa ON pilihan_sub.id_siswa = siswa.id_siswa
+			LEFT JOIN sub_bab ON pilihan_sub.id_sub = sub_bab.id_sub
+			WHERE mapel.id_mapel = $id AND 
+			judul_sub LIKE '%$keyword%' 
+			OR nama_lengkap LIKE '%$keyword%'");
 		return $this->db->resultSet();
 	}
 }

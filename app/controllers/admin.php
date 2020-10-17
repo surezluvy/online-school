@@ -444,4 +444,14 @@ class Admin extends Controller{
 			$this->view('templates/admin/footer');
 	}
 
+	public function cariTerdaftarSub($id){
+		$data['bagian'] = 'Terdaftar di sub';
+			$data['mapelTerdaftarSub'] = $this->model('adminModel')->cariAllMapelTerdaftarSub($id);
+			$data['mapel'] = $this->model('adminModel')->getAllMapel();
+
+			$this->view('templates/admin/header', $data);
+			$this->view('admin/terdaftar/sub', $data);
+			$this->view('templates/admin/footer');
+	}
+
 }

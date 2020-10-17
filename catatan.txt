@@ -1,0 +1,2 @@
+BUG di page terdaftar bab, jika input cari kosong maka semua mapel akan di output
+BUG di page terdaftar bab, jika input tidak ada di mysql maka akan eror
