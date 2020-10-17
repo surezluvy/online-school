@@ -52,7 +52,7 @@
                             </div>                             
                         </div>
                         <div class="uk-width-3-4@m uk-padding-remove-left"> 
-                            <h4 class="uk-margin-remove"> <?= $data['guru']['nama_guru'] ?> </h4> 
+                            <h4 class="uk-margin-remove"> <?= $data['guru']['nama_lengkap'] ?> </h4> 
                             <span class="uk-text-small">  <?= $data['guru']['mengajar_mapel'] ?> </span> 
                             <hr class="uk-margin-small">
                             <p class="uk-margin-remove-top uk-margin-small-bottom">
@@ -75,7 +75,13 @@
                             <a href="Profile.html" class="uk-link-reset">
                                 <div class="uk-padding-remove uk-card-hover uk-card-body uk-width-large border-radius-6 uk-text-center"> 
                                     <img alt="Image" class="uk-width-1-2 uk-margin-top uk-margin-small-bottom uk-border-circle uk-align-center uk-box-shadow-large" src="<?= BASEURL ?>/images/avatures/avature-3.png">
-                                    <h4 class="uk-margin-remove-bottom uk-margin-remove-top "><?= $siswa['nama_panggilan'] ?></h4>
+                                    <h4 class="uk-margin-remove-bottom uk-margin-remove-top ">
+                                        <?php 
+                                            $pisah = preg_split("/(,?\s+)|((?<=[a-z])(?=\d))|((?<=\d)(?=[a-z]))/i", $siswa['nama_lengkap']);
+                        $nama_panggilan = $pisah[0];
+                        echo $nama_panggilan;
+                                         ?>
+                                    </h4>
                                     <h6 class="uk-margin-small-bottom uk-margin-remove-top "> <?= $siswa['jenjang_kelas'] ?></h6> 
                                 </div>                                 
                             </a>                             

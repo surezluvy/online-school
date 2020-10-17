@@ -24,52 +24,40 @@
             <ul data-simplebar> 
                 <li> 
                     <a href="<?php echo BASEURL ?>/admin"> <i class="fas fa-user"></i> Dashboard  </a>
-                </li>                 
-                <li> 
-                    <a href="<?php echo BASEURL ?>/admin/siswa"> <i class="fas fa-user"></i> Siswa  </a>
-                </li>                 
-                <li> 
-                    <a href="<?php echo BASEURL ?>/admin/guru"> <i class="fas fa-user"></i> Guru  </a>
-                </li>               
-                <li> 
-                    <a href="<?php echo BASEURL ?>/admin/kelas"> <i class="fas fa-user"></i> Kelas  </a>
-                </li>              
-                <li> 
-                    <a href="<?php echo BASEURL ?>/admin/mapel"> <i class="fas fa-user"></i> Mapel  </a>
-                </li>                
-                <li> 
-                    <a href="<?php echo BASEURL ?>/admin/bab"> <i class="fas fa-user"></i> Bab  </a>
-                </li>             
-                <li> 
-                    <a href="<?php echo BASEURL ?>/admin/sub"> <i class="fas fa-user"></i> Sub Bab  </a>
-                </li>                      
-                <li> 
-                    <a href="admin-scripts.html"> <i class="fas fa-code"></i> Scripts    </a>
-                </li>                 
-                <li> 
-                    <a href="admin-courses.html"> <i class="fas fa-play"></i> Courses    </a>
-                </li>                 
-                <li> 
-                    <a href="admin-edite-profile.html"> <i class="fas fa-user"></i> edit profile    </a>
-                </li>                 
+                </li>  
                 <ul class="uk-accordion" uk-accordion> 
-                    <li class="uk-open"> 
-                        <a href="ui-components.html" class="uk-accordion-title"> <i class="fas fa-layer-group"></i> sample link </a> 
-                        <div class="uk-accordion-content uk-margin-remove-top" aria-hidden="false"> 
-                            <a href="ui-elements.html">sample link 1</a> 
-                            <a href="ui-elements.html">sample link 2</a> 
-                            <a href="ui-elements.html">sample link 3</a> 
+                    <li class="uk-close"> 
+                        <a href="#" class="uk-accordion-title"> <i class="fas fa-layer-group"></i> Daftar pengguna </a> 
+                        <div class="uk-accordion-content uk-margin-remove-top uk-margin-left" aria-hidden="false"> 
+                            <a href="<?php echo BASEURL ?>/admin/siswa"> <i class="fas fa-user"></i> Siswa  </a>
+                            <a href="<?php echo BASEURL ?>/admin/guru"> <i class="fas fa-user"></i> Guru  </a>
+                        </div>  
+                    </li>    
+                </ul>     
+                 <ul class="uk-accordion" uk-accordion> 
+                    <li class="uk-close"> 
+                        <a href="#" class="uk-accordion-title"> <i class="fas fa-layer-group"></i> Daftar kelas </a> 
+                        <div class="uk-accordion-content uk-margin-remove-top uk-margin-left" aria-hidden="false"> 
+                            <a href="<?php echo BASEURL ?>/admin/kelas"> <i class="fas fa-user"></i> Kelas  </a>
+                            <a href="<?php echo BASEURL ?>/admin/mapel"> <i class="fas fa-user"></i> Mapel  </a>
+                            <a href="<?php echo BASEURL ?>/admin/bab"> <i class="fas fa-user"></i> Bab  </a>
+                            <a href="<?php echo BASEURL ?>/admin/sub"> <i class="fas fa-user"></i> Sub Bab  </a>
+                        </div>  
+                    </li>    
+                </ul>        
+                <ul class="uk-accordion" uk-accordion> 
+                    <li class="uk-close"> 
+                        <a href="ui-components.html" class="uk-accordion-title"> <i class="fas fa-layer-group"></i> Terdaftar di mapel </a> 
+                        <div class="uk-accordion-content uk-margin-remove-top uk-margin-left" aria-hidden="false">     
+                            <?php foreach ($data['mapel'] as $bab): ?>
+                            <a href="<?php echo BASEURL ?>/admin/terdaftar/<?php echo $bab['id_mapel'] ?>"><i class="fas fa-user"></i><?php echo $bab['nama_mapel'] ?></a>                                 
+                            <?php endforeach ?>
+
                         </div>                         
-                    </li>                     
-                    <li class=" uk-margin-remove-top"> 
-                        <a href="ui-components.html" class="uk-accordion-title"> <i class="fas fa-layer-group"></i> sample link  </a> 
-                        <div class="uk-accordion-content uk-margin-remove-top" hidden="" aria-hidden="true"> 
-                            <a href="ui-components.html"> sample link  </a> 
-                        </div>                         
-                    </li>                     
-                </ul>                 
+                    </li>         
+                </ul> 
                 <li> 
-                    <a href="admin-login.html"> <i class="fas fa-user"></i> Logut </a>
+                    <a href="admin-login.html"> <i class="fas fa-user"></i> Logout </a>
                 </li>                 
             </ul>             
         </div>         

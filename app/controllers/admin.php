@@ -3,6 +3,7 @@ class Admin extends Controller{
 
 	public function index(){
 		$data['bagian'] = '';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['jumlahBab'] = $this->model('adminModel')->jumlahBab();
 		$data['jumlahSiswa'] = $this->model('adminModel')->jumlahSiswa();
@@ -19,6 +20,7 @@ class Admin extends Controller{
 
 	public function siswa(){
 		$data['bagian'] = 'Siswa';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['siswa'] = $this->model('adminModel')->getAllSiswa();
 
@@ -40,6 +42,7 @@ class Admin extends Controller{
 
 	public function editSiswa($id){
 		$data['bagian'] = 'Edit siswa';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['siswa'] = $this->model('adminModel')->getSiswaById($id);
 
@@ -70,6 +73,7 @@ class Admin extends Controller{
 
 	public function cariSiswa(){
 		$data['bagian'] = 'Siswa';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['siswa'] = $this->model('adminModel')->cariSiswa();
 
@@ -82,6 +86,7 @@ class Admin extends Controller{
 
 	public function guru(){
 		$data['bagian'] = 'Guru';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['guru'] = $this->model('adminModel')->getAllGuru();
 
@@ -103,6 +108,7 @@ class Admin extends Controller{
 
 	public function editGuru($id){
 		$data['bagian'] = 'Edit guru';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['guru'] = $this->model('adminModel')->getGuruById($id);
 
@@ -133,6 +139,7 @@ class Admin extends Controller{
 
 	public function cariGuru(){
 		$data['bagian'] = 'Guru';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['guru'] = $this->model('adminModel')->cariGuru();
 
@@ -145,6 +152,7 @@ class Admin extends Controller{
 
 	public function bab(){
 		$data['bagian'] = 'Bab';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['bab'] = $this->model('adminModel')->getAllBab();
 
@@ -166,6 +174,7 @@ class Admin extends Controller{
 
 	public function editBab($id){
 		$data['bagian'] = 'Edit bab';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['bab'] = $this->model('adminModel')->getBabById($id);
 
@@ -196,6 +205,7 @@ class Admin extends Controller{
 
 	public function cariBab(){
 		$data['bagian'] = 'Bab';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['bab'] = $this->model('adminModel')->cariBab();
 
@@ -208,6 +218,7 @@ class Admin extends Controller{
 
 	public function mapel(){
 		$data['bagian'] = 'Mapel';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
@@ -229,6 +240,7 @@ class Admin extends Controller{
 
 	public function editMapel($id){
 		$data['bagian'] = 'Edit mapel';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['mapel'] = $this->model('adminModel')->getMapelById($id);
 
@@ -259,6 +271,7 @@ class Admin extends Controller{
 
 	public function cariMapel(){
 		$data['bagian'] = 'Mapel';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['mapel'] = $this->model('adminModel')->cariMapel();
 
@@ -271,6 +284,7 @@ class Admin extends Controller{
 
 	public function kelas(){
 		$data['bagian'] = 'Kelas';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['kelas'] = $this->model('adminModel')->getAllKelas();
 
@@ -292,6 +306,7 @@ class Admin extends Controller{
 
 	public function editKelas($id){
 		$data['bagian'] = 'Edit kelas';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['kelas'] = $this->model('adminModel')->getKelasById($id);
 
@@ -322,6 +337,7 @@ class Admin extends Controller{
 
 	public function cariKelas(){
 		$data['bagian'] = 'Kelas';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['kelas'] = $this->model('adminModel')->cariKelas();
 
@@ -334,6 +350,7 @@ class Admin extends Controller{
 
 	public function sub(){
 		$data['bagian'] = 'Sub Bab';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['sub'] = $this->model('adminModel')->getAllSub();
 		$data['bab'] = $this->model('adminModel')->getAllBab();
@@ -356,6 +373,7 @@ class Admin extends Controller{
 
 	public function editSub($id){
 		$data['bagian'] = 'Edit sub';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 		$data['bab'] = $this->model('adminModel')->getAllBab();
 
 		$data['sub'] = $this->model('adminModel')->getSubById($id);
@@ -387,6 +405,7 @@ class Admin extends Controller{
 
 	public function cariSub(){
 		$data['bagian'] = 'Sub Bab';
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
 
 		$data['sub'] = $this->model('adminModel')->cariSub();
 		$this->view('templates/admin/header', $data);
