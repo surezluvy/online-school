@@ -5,6 +5,7 @@ class adminModel{
 	private $db;
 	private $tableBab = 'bab';
 	private $tableSiswa = 'siswa';
+	private $tableMapel = 'mapel';
 	private $tableGuru = 'guru';
 
 	public function __construct(){
@@ -235,6 +236,70 @@ class adminModel{
 					OR jenjang_kelas LIKE '%$keyword%' 
 					OR nama_bab LIKE '%$keyword%' 
 					OR deskripsi_bab LIKE '%$keyword%'";
+		$this->db->query($query);
+		return $this->db->resultSet();
+		
+		return $this->db->resultSet();
+	}
+
+	// ===============================================================================================
+
+	public function getAllMapel(){
+		$this->db->query('SELECT * FROM ' . $this->tableMapel);
+		return $this->db->resultSet();
+	}
+
+	public function getMapelById($id){
+		$this->db->query('SELECT * FROM ' . $this->tableMapel . ' WHERE id_mapel = ' . $id);
+		return $this->db->single();
+	}
+
+	public function tambahMapel($data){
+		$query = "INSERT INTO mapel(nama_mapel, jenjang_kelas, deskripsi_mapel)
+					VALUES
+					(:nama_mapel, :jenjang_kelas, :deskripsi_mapel)";
+		$this->db->query($query);
+		$this->db->bind('nama_mapel', $data['nama_mapel']);
+		$this->db->bind('jenjang_kelas', $data['jenjang_kelas']);
+		$this->db->bind('deskripsi_mapel', $data['deskripsi_mapel']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+	
+
+	public function editMapel($data){
+		$query = "UPDATE mapel
+					SET
+					nama_mapel = :nama_mapel, jenjang_kelas = :jenjang_kelas,  deskripsi_mapel = :deskripsi_mapel WHERE id_mapel = :id_mapel";
+		$this->db->query($query);
+		$this->db->bind('id_mapel', $data['id_mapel']);
+		$this->db->bind('nama_mapel', $data['nama_mapel']);
+		$this->db->bind('jenjang_kelas', $data['jenjang_kelas']);
+		$this->db->bind('deskripsi_mapel', $data['deskripsi_mapel']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function hapusMapel($id){
+		$query = "DELETE FROM mapel WHERE id_mapel = :id_mapel";
+		$this->db->query($query);
+		$this->db->bind('id_mapel', $id);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function cariMapel(){
+		$keyword = $_POST['keyword'];
+		$query = "SELECT * FROM $this->tableMapel WHERE
+					nama_mapel LIKE '%$keyword%' 
+					OR jenjang_kelas LIKE '%$keyword%'
+					OR deskripsi_mapel LIKE '%$keyword%'";
 		$this->db->query($query);
 		return $this->db->resultSet();
 		

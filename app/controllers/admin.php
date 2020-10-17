@@ -203,4 +203,67 @@ class Admin extends Controller{
 		$this->view('admin/bab/index', $data);
 		$this->view('templates/admin/footer');
 	}
+
+	// ===============================================================================================
+
+	public function mapel(){
+		$data['bagian'] = 'Mapel';
+
+		$data['mapel'] = $this->model('adminModel')->getAllMapel();
+
+		$this->view('templates/admin/header', $data);
+		$this->view('admin/mapel/index', $data);
+		$this->view('templates/admin/footer');
+	}
+
+	public function tambahMapel(){
+
+		if ($this->model('adminModel')->tambahMapel($_POST) > 0) {
+			Flasher::setFlash('Berhasil menambahkan data mapel.', 'primary');
+			header('Location: ' . BASEURL . '/admin/mapel/index');
+			exit;
+		} else{
+			Flasher::setFlash('Gagal menambahkan data mapel!', 'warning');
+		}
+	}
+
+	public function editMapel($id){
+		$data['bagian'] = 'Edit mapel';
+
+		$data['mapel'] = $this->model('adminModel')->getMapelById($id);
+
+		$this->view('templates/admin/header', $data);
+		$this->view('admin/mapel/editMapel', $data);
+		$this->view('templates/admin/footer');
+	}
+
+	public function prosesEditMapel(){
+		if ($this->model('adminModel')->editMapel($_POST) > 0) {
+			Flasher::setFlash('Berhasil update data mapel.', 'primary');
+			header('Location: ' . BASEURL . '/admin/mapel/index');
+			exit;
+		} else{
+			Flasher::setFlash('Gagal update data mapel!', 'warning');
+		}
+	}
+
+	public function hapusMapel($id){
+		if ($this->model('adminModel')->hapusMapel($id) > 0) {
+			Flasher::setFlash('Berhasil menghapus data mapel.', 'primary');
+			header('Location: ' . BASEURL . '/admin/mapel/index');
+			exit;
+		} else{
+			Flasher::setFlash('Gagal menghapus data mapel!', 'warning');
+		}
+	}
+
+	public function cariMapel(){
+		$data['bagian'] = 'Mapel';
+
+		$data['mapel'] = $this->model('adminModel')->cariMapel();
+
+		$this->view('templates/admin/header', $data);
+		$this->view('admin/mapel/index', $data);
+		$this->view('templates/admin/footer');
+	}
 }

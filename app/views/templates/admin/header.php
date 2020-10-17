@@ -32,6 +32,9 @@
                     <a href="<?php echo BASEURL ?>/admin/guru"> <i class="fas fa-user"></i> Guru  </a>
                 </li>               
                 <li> 
+                    <a href="<?php echo BASEURL ?>/admin/mapel"> <i class="fas fa-user"></i> Mapel  </a>
+                </li>                
+                <li> 
                     <a href="<?php echo BASEURL ?>/admin/bab"> <i class="fas fa-user"></i> Bab  </a>
                 </li>                  
                 <li> 
