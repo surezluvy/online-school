@@ -173,4 +173,71 @@ class adminModel{
 		
 		return $this->db->resultSet();
 	}
+
+	// ===============================================================================================
+
+	public function getAllBab(){
+		$this->db->query('SELECT * FROM ' . $this->tableBab);
+		return $this->db->resultSet();
+	}
+
+	public function getBabById($id){
+		$this->db->query('SELECT * FROM ' . $this->tableBab . ' WHERE id_bab = ' . $id);
+		return $this->db->single();
+	}
+
+	public function tambahBab($data){
+		$query = "INSERT INTO bab(nama_mapel, jenjang_kelas, nama_bab, deskripsi_bab)
+					VALUES
+					(:nama_mapel, :jenjang_kelas, :nama_bab, :deskripsi_bab)";
+		$this->db->query($query);
+		$this->db->bind('nama_mapel', $data['nama_mapel']);
+		$this->db->bind('jenjang_kelas', $data['jenjang_kelas']);
+		$this->db->bind('nama_bab', $data['nama_bab']);
+		$this->db->bind('deskripsi_bab', $data['deskripsi_bab']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+	
+
+	public function editBab($data){
+		$query = "UPDATE bab
+					SET
+					nama_mapel = :nama_mapel, jenjang_kelas = :jenjang_kelas, nama_bab = :nama_bab, deskripsi_bab = :deskripsi_bab WHERE id_bab = :id_bab";
+		$this->db->query($query);
+		$this->db->bind('id_bab', $data['id_bab']);
+		$this->db->bind('nama_mapel', $data['nama_mapel']);
+		$this->db->bind('jenjang_kelas', $data['jenjang_kelas']);
+		$this->db->bind('nama_bab', $data['nama_bab']);
+		$this->db->bind('deskripsi_bab', $data['deskripsi_bab']);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function hapusBab($id){
+		$query = "DELETE FROM bab WHERE id_bab = :id_bab";
+		$this->db->query($query);
+		$this->db->bind('id_bab', $id);
+
+		$this->db->execute();
+
+		return $this->db->rowCount();
+	}
+
+	public function cariBab(){
+		$keyword = $_POST['keyword'];
+		$query = "SELECT * FROM $this->tableBab WHERE
+					nama_mapel LIKE '%$keyword%' 
+					OR jenjang_kelas LIKE '%$keyword%' 
+					OR nama_bab LIKE '%$keyword%' 
+					OR deskripsi_bab LIKE '%$keyword%'";
+		$this->db->query($query);
+		return $this->db->resultSet();
+		
+		return $this->db->resultSet();
+	}
 }

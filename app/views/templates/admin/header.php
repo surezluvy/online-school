@@ -30,10 +30,10 @@
                 </li>                 
                 <li> 
                     <a href="<?php echo BASEURL ?>/admin/guru"> <i class="fas fa-user"></i> Guru  </a>
-                </li>                 
+                </li>               
                 <li> 
-                    <a href="admin-books.html"> <i class="fas fa-book-open"></i> Books    </a>
-                </li>                 
+                    <a href="<?php echo BASEURL ?>/admin/bab"> <i class="fas fa-user"></i> Bab  </a>
+                </li>                  
                 <li> 
                     <a href="admin-scripts.html"> <i class="fas fa-code"></i> Scripts    </a>
                 </li>                 

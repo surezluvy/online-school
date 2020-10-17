@@ -140,4 +140,67 @@ class Admin extends Controller{
 		$this->view('admin/guru/index', $data);
 		$this->view('templates/admin/footer');
 	}
+
+	// ===============================================================================================
+
+	public function bab(){
+		$data['bagian'] = 'Bab';
+
+		$data['bab'] = $this->model('adminModel')->getAllBab();
+
+		$this->view('templates/admin/header', $data);
+		$this->view('admin/bab/index', $data);
+		$this->view('templates/admin/footer');
+	}
+
+	public function tambahBab(){
+
+		if ($this->model('adminModel')->tambahBab($_POST) > 0) {
+			Flasher::setFlash('Berhasil menambahkan data bab.', 'primary');
+			header('Location: ' . BASEURL . '/admin/bab/index');
+			exit;
+		} else{
+			Flasher::setFlash('Gagal menambahkan data bab!', 'warning');
+		}
+	}
+
+	public function editBab($id){
+		$data['bagian'] = 'Edit bab';
+
+		$data['bab'] = $this->model('adminModel')->getBabById($id);
+
+		$this->view('templates/admin/header', $data);
+		$this->view('admin/bab/editBab', $data);
+		$this->view('templates/admin/footer');
+	}
+
+	public function prosesEditBab(){
+		if ($this->model('adminModel')->editBab($_POST) > 0) {
+			Flasher::setFlash('Berhasil update data bab.', 'primary');
+			header('Location: ' . BASEURL . '/admin/bab/index');
+			exit;
+		} else{
+			Flasher::setFlash('Gagal update data bab!', 'warning');
+		}
+	}
+
+	public function hapusBab($id){
+		if ($this->model('adminModel')->hapusBab($id) > 0) {
+			Flasher::setFlash('Berhasil menghapus data bab.', 'primary');
+			header('Location: ' . BASEURL . '/admin/bab/index');
+			exit;
+		} else{
+			Flasher::setFlash('Gagal menghapus data bab!', 'warning');
+		}
+	}
+
+	public function cariBab(){
+		$data['bagian'] = 'Bab';
+
+		$data['bab'] = $this->model('adminModel')->cariBab();
+
+		$this->view('templates/admin/header', $data);
+		$this->view('admin/bab/index', $data);
+		$this->view('templates/admin/footer');
+	}
 }
