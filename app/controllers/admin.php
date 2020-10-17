@@ -412,4 +412,36 @@ class Admin extends Controller{
 		$this->view('admin/sub/index', $data);
 		$this->view('templates/admin/footer');
 	}
+	// ===============================================================================================
+
+	public function terdaftarBab($id){
+		$data['bagian'] = 'Terdaftar di bab';
+			$data['mapelTerdaftarBab'] = $this->model('adminModel')->getAllMapelTerdaftarBab($id);
+			$data['mapel'] = $this->model('adminModel')->getAllMapel();
+
+			$this->view('templates/admin/header', $data);
+			$this->view('admin/terdaftar/bab', $data);
+			$this->view('templates/admin/footer');
+	}
+
+	public function terdaftarSub($id){
+		$data['bagian'] = 'Terdaftar di sub bab';
+			$data['mapelTerdaftarSub'] = $this->model('adminModel')->getAllMapelTerdaftarSub($id);
+			$data['mapel'] = $this->model('adminModel')->getAllMapel();
+
+			$this->view('templates/admin/header', $data);
+			$this->view('admin/terdaftar/sub', $data);
+			$this->view('templates/admin/footer');
+	}
+
+	public function cariTerdaftarBab($id){
+		$data['bagian'] = 'Terdaftar di bab';
+			$data['mapelTerdaftarBab'] = $this->model('adminModel')->cariAllMapelTerdaftarBab($id);
+			$data['mapel'] = $this->model('adminModel')->getAllMapel();
+
+			$this->view('templates/admin/header', $data);
+			$this->view('admin/terdaftar/bab', $data);
+			$this->view('templates/admin/footer');
+	}
+
 }

@@ -8,6 +8,8 @@ class adminModel{
 	private $tableSiswa = 'siswa';
 	private $tableKelas = 'kelas';
 	private $tableMapel = 'mapel';
+	private $tablePilBab = 'pilihan_bab';
+	private $tablePilSub = 'pilihan_sub';
 	private $tableGuru = 'guru';
 
 	public function __construct(){
@@ -430,6 +432,30 @@ class adminModel{
 		$this->db->query($query);
 		return $this->db->resultSet();
 		
+		return $this->db->resultSet();
+	}
+
+	public function getAllMapelTerdaftarBab($id){
+		$this->db->query("SELECT * FROM pilihan_bab LEFT JOIN mapel ON pilihan_bab.id_mapel = mapel.id_mapel 
+			LEFT JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa
+			LEFT JOIN bab ON pilihan_bab.id_bab = bab.id_bab
+			WHERE mapel.id_mapel = $id;");
+		return $this->db->resultSet();
+	}
+
+	public function getAllMapelTerdaftarSub($id){
+		$this->db->query("SELECT * FROM pilihan_sub LEFT JOIN mapel ON pilihan_sub.id_mapel = mapel.id_mapel 
+			LEFT JOIN siswa ON pilihan_sub.id_siswa = siswa.id_siswa
+			LEFT JOIN sub_bab ON pilihan_sub.id_sub = sub_bab.id_sub
+			WHERE mapel.id_mapel = $id;");
+		return $this->db->resultSet();
+	}
+
+	public function cariAllMapelTerdaftarBab($id){
+		$this->db->query("SELECT * FROM pilihan_bab LEFT JOIN mapel ON pilihan_bab.id_mapel = mapel.id_mapel 
+			LEFT JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa
+			LEFT JOIN bab ON pilihan_bab.id_bab = bab.id_bab
+			WHERE nama_bab LIKE '%$keyword%'");
 		return $this->db->resultSet();
 	}
 }

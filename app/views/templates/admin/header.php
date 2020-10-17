@@ -50,7 +50,15 @@
                         <a href="ui-components.html" class="uk-accordion-title"> <i class="fas fa-layer-group"></i> Terdaftar di mapel </a> 
                         <div class="uk-accordion-content uk-margin-remove-top uk-margin-left" aria-hidden="false">     
                             <?php foreach ($data['mapel'] as $bab): ?>
-                            <a href="<?php echo BASEURL ?>/admin/terdaftar/<?php echo $bab['id_mapel'] ?>"><i class="fas fa-user"></i><?php echo $bab['nama_mapel'] ?></a>                                 
+                                <ul class="uk-accordion" uk-accordion> 
+                                    <li class="uk-close"> 
+                                        <a href="ui-components.html" class="uk-accordion-title"> <i class="fas fa-layer-group"></i> <?php echo $bab['nama_mapel'] ?> </a> 
+                                        <div class="uk-accordion-content uk-margin-remove-top uk-margin-left" aria-hidden="false">     
+                                            <a href="<?php echo BASEURL ?>/admin/terdaftarBab/<?php echo $bab['id_mapel'] ?>"><i class="fas fa-user"></i>Bab</a>
+                                            <a href="<?php echo BASEURL ?>/admin/terdaftarSub/<?php echo $bab['id_mapel'] ?>"><i class="fas fa-user"></i>Sub Bab</a>   
+                                        </div>                         
+                                    </li>         
+                                </ul>                                
                             <?php endforeach ?>
 
                         </div>                         
