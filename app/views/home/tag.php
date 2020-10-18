@@ -21,7 +21,7 @@
                         <div> 
                             <a href="Blog-post-single.html">
                                 <div class="uk-card-default uk-card-hover uk-card-small uk-margin-medium-bottom uk-inline-clip border-radius-6"> 
-                                    <img src="<?=  BASEURL ?>/images/blog/blog-image.jpg"> 
+                                    <img src="<?=  BASEURL ?>/images/home/Thumbnail.jpeg"> 
                                     <div class="uk-card-body"> 
                                         <h4 class="uk-margin uk-margin-remove-bottom"> <?php echo $tag['nama_bab'] ?>  </h4> 
                                         <p><span class="uk-label"><?php echo $tag['jenjang_kelas'] ?></span> <span class="uk-label uk-label-success"><?php echo $tag['nama_mapel'] ?></span>
@@ -39,7 +39,7 @@
                         <div> 
                             <a href="Blog-post-single.html">
                                 <div class="uk-card-default uk-card-hover uk-card-small uk-margin-medium-bottom uk-inline-clip border-radius-6"> 
-                                    <img src="<?=  BASEURL ?>/images/blog/blog-image.jpg"> 
+                                    <img src="<?=  BASEURL ?>/images/home/Thumbnail.jpeg"> 
                                     <div class="uk-card-body"> 
                                         <h4 class="uk-margin uk-margin-remove-bottom"> <?php echo $tag['nama_bab'] ?>  </h4> 
                                         <p><span class="uk-label"><?php echo $tag['jenjang_kelas'] ?></span> <span class="uk-label uk-label-success"><?php echo $tag['nama_mapel'] ?></span>

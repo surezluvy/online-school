@@ -4,7 +4,7 @@
                 <h2 class="uk-light uk-text-uppercase uk-text-bold uk-text-white uk-margin-top"> <?= $data['bab']['nama_bab'] ?>   </h2>
                 <p class="uk-light uk-text-bold"><?= $data['bab']['deskripsi_bab'] ?></p>
                 <p class="uk-light uk-text-bold uk-text-small"> <i class="fas fa-user icon-small uk-margin-small-right"></i> <?= $data['pilihan']['COUNT(*)'] ?> siswa terdaftar</p>
-                <a class="uk-button uk-button-white" href="Course-dhashboard.html" uk-tooltip="title: Start this course now ; delay: 200 ; pos: top ;animation:	uk-animation-scale-up"> Ambil Kursus</a> 
+                <a class="uk-button uk-button-white" href="<?php echo BASEURL ?>/home/mulaiBab/<?php echo $data['bab']['id_bab'] ?>" uk-tooltip="title: Start this course now ; delay: 200 ; pos: top ;animation:	uk-animation-scale-up"> Ambil Kursus</a> 
             </div>
             <!-- navigation-->
             <ul class="uk-tab uk-flex-center  uk-margin-remove-top uk-background-default  uk-sticky" uk-sticky="animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up ; media: @s;" uk-tab>
@@ -47,7 +47,7 @@
                             <div class="uk-text-small uk-margin-small-top">
                                 <p> <i class="fas fa-star"></i> <?= $data['guru']['poin'] ?> Total Point </p>
                                 <p> <i class="fas fa-comment-dots"></i>  89,072 Reviews </p>
-                                <p> <i class="fas fa-user"></i> <?= $data['pilihan']['COUNT(*)'] ?> Students </p>
+                                <p> <i class="fas fa-user"></i> <?= $data['jumlahSiswaBab']['COUNT(*)'] ?> Students </p>
                                 <p> <i class="fas fa-play"></i> Mengajar <?= $data['guru']['nama_mapel'] ?> </p>
                             </div>                             
                         </div>

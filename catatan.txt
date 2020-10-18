@@ -1,1 +1,2 @@
 Navbar di home tidak berubah.
+Flash setelah mengambil kursus belum ditambahkan

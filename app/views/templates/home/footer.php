@@ -1,4 +1,5 @@
-<!-- footer -->             
+
+            <!-- footer -->             
             <div class="uk-section-small uk-margin-medium-top"> 
                 <hr class="uk-margin-remove"> 
                 <div class="uk-container uk-align-center uk-margin-remove-bottom uk-position-relative"> 
@@ -74,7 +75,8 @@
                 </div>                 
             </div>             
             <!-- footer  end -->             
-        </div>         
+        </div>  
+               
         <!--InfoBox starts her-->         
         <div id="infoBox" class="info-box uk-background-default uk-position-bottom-right uk-position-fixed uk-animation-slide-right-medium"> 
             <header class="uk-background-grey"> 
@@ -199,13 +201,15 @@
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
                         <a href="pages-terms.html" style="margin-bottom: 130px;" lass="uk-align-center uk-text-center uk-h5 uk-link-heading"> Visit Our Peyment page </a> 
                     </div>                     
-                </div>                 
-            </div>             
-        </div>         
-        <!-- app end --> 
+                </div> 
 
+            </div>             
+        </div>            
+        <!-- app end -->
+        
         <!-- button scrollTop --> 
         <button   id="scrollTop" class="uk-animation-slide-bottom-medium"> <a href="#" class="uk-text-white" uk-totop uk-scroll></a> </button>      
+      
         <!--  Night mood -->         
         <script>
         (function (window, document, undefined) {
@@ -250,7 +254,7 @@
 
         //scrollTop
         // When the user scrolls down 20px from the top of the document, show the button
-         window.onscroll = function() {scrollFunction()};        
+        window.onscroll = function() {scrollFunction()};        
         function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 document.getElementById("scrollTop").style.display = "block";
@@ -263,6 +267,7 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+
 
         </script>         
     </body>     

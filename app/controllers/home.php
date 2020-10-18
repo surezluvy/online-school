@@ -25,7 +25,7 @@ class Home extends Controller{
 		$data['color2'] = "";
 
 		$data['bab'] = $this->model('homeModel')->babById($idBab);
-		$data['pilihan'] = $this->model('homeModel')->pilihan($idBab);
+		$data['pilihan'] = $this->model('homeModel')->jumlahSiswaBab($idBab);
 		$data['guru'] = $this->model('homeModel')->guruBab($idMapel);
 		$data['siswa'] = $this->model('homeModel')->siswaBab($idBab);
 		$data['page'] = 'bab';
@@ -58,6 +58,31 @@ class Home extends Controller{
 
 		$this->view('templates/home/header', $data);
 		$this->view('home/profil', $data);
+		$this->view('templates/home/footer');
+	}
+
+	public function mulaiBab($idBab){
+		$data['color1'] = "style='color:#ffffffad'";
+		$data['color2'] = "style='color:#ffffffad'";
+
+		$data['bab'] = $this->model('homeModel')->babByIdMulai($idBab);
+		$data['pilihan'] = $this->model('homeModel')->jumlahSiswaBab($idBab);
+		$data['sub'] = $this->model('homeModel')->subBabMulai($idBab);
+		$data['related'] = $this->model('homeModel')->related($idBab);
+
+		$this->view('templates/home/header', $data);
+		$this->view('home/mulaiBab', $data);
+		$this->view('templates/home/footer');
+	}
+
+	public function mulaiSub($idSub){
+		$data['color1'] = "style='color:#ffffffad'";
+		$data['color2'] = "style='color:#ffffffad'";
+		
+		$data['sub'] = $this->model('homeModel')->subMulai($idSub);
+
+		$this->view('templates/home/header', $data);
+		$this->view('home/mulaiSub', $data);
 		$this->view('templates/home/footer');
 	}
 }
