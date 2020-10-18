@@ -31,12 +31,12 @@ class homeModel{
 	}
 
 	public function babMtk(){
-		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas INNER JOIN mapel ON bab.nama_mapel = mapel.nama_mapel WHERE id_mapel = 1");
+		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel WHERE bab.id_mapel = 1");
 		return $this->db->resultSet();
 	}
 
 	public function babBi(){
-		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas INNER JOIN mapel ON bab.nama_mapel = mapel.nama_mapel WHERE id_mapel = 2");
+		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel WHERE bab.id_mapel = 2");
 		return $this->db->resultSet();
 	}
 

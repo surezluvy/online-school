@@ -2,7 +2,7 @@
     <?php Flasher::flash(); ?>
     <div class="uk-flex-inline uk-flex-middle"> 
         <i class="fas fa-user icon-large uk-margin-right"></i> 
-        <h4 class="uk-margin-remove"> Terdaftar di bab <?php echo $data['mapelTerdaftarSub'][0]['judul_sub'] ?> </h4>             
+        <h4 class="uk-margin-remove"> Terdaftar di bab </h4>             
     </div>                 
     <div class="uk-background-default uk-margin-top uk-padding"> 
         <div uk-grid> 

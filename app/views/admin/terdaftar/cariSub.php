@@ -2,7 +2,7 @@
     <?php Flasher::flash(); ?>
     <div class="uk-flex-inline uk-flex-middle"> 
         <i class="fas fa-user icon-large uk-margin-right"></i> 
-        <h4 class="uk-margin-remove"> Terdaftar di bab</h4>                 
+        <h4 class="uk-margin-remove"> Terdaftar di bab </h4>             
     </div>                 
     <div class="uk-background-default uk-margin-top uk-padding"> 
         <div uk-grid> 
@@ -18,7 +18,7 @@
                 </form>                             
             </div>                         
             <div class="uk-width-auto@m uk-text-small"> 
-                <form method="post" action="<?php echo BASEURL ?>/admin/cariTerdaftarBab/<?php echo $data['mapelTerdaftarBab'][0]['id_mapel'] ?>"> 
+                <form method="post" action="<?php echo BASEURL ?>/admin/cariTerdaftarSub/<?php echo $data['mapelTerdaftarSub'][0]['id_mapel'] ?>"> 
                     <input name="keyword" class="uk-input uk-form-width-medium" type="text" placeholder="Cari mapel"> 
                     <button class="uk-button uk-button-grey admin-btn" type="submit">Cari</button>                          
                 </form>                             
@@ -30,7 +30,7 @@
             <thead> 
                 <tr class="uk-text-small uk-text-bold"> 
                     <th>No</th> 
-                    <th>Nama Bab</th>
+                    <th>Nama Sub Bab</th>
                     <th>Siswa Terdaftar</th> 
                     <th>Kelas</th> 
                     <th>Nama Mapel</th>
@@ -39,14 +39,14 @@
             <tbody> 
                 <?php
                     $no = 1; 
-                    foreach ($data['mapelTerdaftarBab'] as $mapel):
+                    foreach ($data['cariMapelTerdaftarSub'] as $mapel):
                 ?>
                     
                     <tr> 
                         <td>
                             <?php echo $no; ?>
                         </td>                                             
-                        <td class="uk-align-center"> <?php echo $mapel['nama_bab'] ?>  </td>
+                        <td class="uk-align-center"> <?php echo $mapel['judul_sub'] ?>  </td>
                         <td><?php echo $mapel['nama_lengkap'] ?></td>
                         <td><?php echo $mapel['jenjang_kelas'] ?></td>
                         <td><?php echo $mapel['nama_mapel'] ?></td>                            

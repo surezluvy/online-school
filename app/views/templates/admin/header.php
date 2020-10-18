@@ -81,7 +81,7 @@
                 <div class="uk-navbar-left"> 
                     <ul class="uk-navbar-nav"> 
                         <li class="uk-active"> 
-                            <a href="index.html">Dashboard</a> 
+                            <a href="<?php echo BASEURL ?>/admin">Dashboard</a> 
                         </li>                         
                         <li> 
                             <a href='#'><?= $data['bagian'] ?></a> 
