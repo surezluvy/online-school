@@ -15,7 +15,7 @@
                 <?php foreach ($data['babMtk'] as $bab) { ?>
                 <div> 
                     <div class="uk-card-default uk-card-hover uk-card-small Course-card uk-inline-clip uk-transition-toggle" tabindex="0">                                
-                        <a href="<?= BASEURL ?>/home/bab/<?= $bab['id_bab'] ?>" class="uk-link-reset"> 
+                        <a href="<?= BASEURL ?>/home/bab/<?= $bab['id_mapel'] ?>/<?= $bab['id_bab'] ?>" class="uk-link-reset"> 
                             <img src="<?= BASEURL; ?>/images/home/Matematika.png" class="course-img"> 
                             <div class="uk-card-body"> 
                                 <h4><?= $bab['nama_bab'] ?></h4> 
@@ -50,7 +50,7 @@
                 <?php foreach ($data['babBi'] as $bab) { ?>
                 <div> 
                     <div class="uk-card-default uk-card-hover uk-card-small Course-card uk-inline-clip uk-transition-toggle" tabindex="0">                                 
-                        <a href="<?= BASEURL ?>/home/bab/<?= $bab['id_bab'] ?>" class="uk-link-reset"> 
+                        <a href="<?= BASEURL ?>/home/bab/<?= $bab['id_mapel'] ?>/<?= $bab['id_bab'] ?>" class="uk-link-reset"> 
                             <img src="<?= BASEURL; ?>/images/home/Indonesia.jpg" class="course-img"> 
                             <div class="uk-card-body"> 
                                 <h4><?= $bab['nama_bab'] ?></h4> 

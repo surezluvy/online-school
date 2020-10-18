@@ -40,33 +40,47 @@ class homeModel{
 		return $this->db->resultSet();
 	}
 
-	public function babById($id){
-		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE id_bab = $id");
+	public function babById($idBab){
+		$this->db->query("SELECT * FROM ". $this->tableBab ." WHERE id_bab = $idBab");
 		return $this->db->single();
 	}
 
-	public function pilihan($id){
-		$this->db->query("SELECT COUNT(*) FROM ". $this->tablePilihan ." WHERE id_bab = $id");
+	public function pilihan($idBab){
+		$this->db->query("SELECT COUNT(*) FROM ". $this->tablePilihan ." WHERE id_bab = $idBab");
 		return $this->db->single();
 	}
 
-	public function guruBab(){
-		$this->db->query("SELECT * FROM ". $this->tableGuru ." WHERE mengajar_mapel = 'Matematika'");
+	public function guruBab($idMapel){
+		$this->db->query("SELECT * FROM ". $this->tableGuru ." INNER JOIN mapel ON guru.id_mapel = mapel.id_mapel WHERE guru.id_mapel = $idMapel");
 		return $this->db->single();
 	}
 
-	public function siswaBab($id){
-		$this->db->query("SELECT * FROM ". $this->tableSiswa ." INNER JOIN ". $this->tablePilihan ." ON ". $this->tableSiswa .".id_siswa = ". $this->tablePilihan .".id_siswa WHERE id_bab = $id");
+	public function siswaBab($idBab){
+		$this->db->query("SELECT * FROM ". $this->tableSiswa ." INNER JOIN ". $this->tablePilihan ." ON ". $this->tableSiswa .".id_siswa = ". $this->tablePilihan .".id_siswa WHERE id_bab = $idBab");
 		return $this->db->resultSet();
 	}
 
 	public function tagByKelas($idKelas){
-		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas WHERE id_kelas = $idKelas");
+		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableKelas ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableKelas .".jenjang_kelas INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel WHERE id_kelas = $idKelas");
 		return $this->db->resultSet();
 	}
 
-	public function tagByMapel($idMapel){
-		$this->db->query("SELECT * FROM ". $this->tableBab ." INNER JOIN ". $this->tableMapel ." ON ". $this->tableBab .".jenjang_kelas = ". $this->tableMapel .".jenjang_kelas WHERE id_mapel = $idMapel");
+	public function tagByMapel($idKelas, $idMapel){
+		$this->db->query("SELECT * FROM bab INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel WHERE mapel.id_mapel = $idMapel");
+		return $this->db->resultSet();
+	}
+
+	public function profil($idSiswa, $idBab){
+		$this->db->query("SELECT * FROM pilihan_bab INNER JOIN bab ON pilihan_bab.id_bab = bab.id_bab 
+INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel
+INNER JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa WHERE siswa.id_siswa = $idSiswa AND bab.id_bab = $idBab");
+		return $this->db->single();
+	}
+
+	public function profilBab($idSiswa, $idBab){
+		$this->db->query("SELECT * FROM pilihan_bab INNER JOIN bab ON pilihan_bab.id_bab = bab.id_bab 
+INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel
+INNER JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa WHERE siswa.id_siswa = $idSiswa");
 		return $this->db->resultSet();
 	}
 }

@@ -182,7 +182,7 @@ class adminModel{
 	// ===============================================================================================
 
 	public function getAllBab(){
-		$this->db->query('SELECT * FROM ' . $this->tableBab);
+		$this->db->query('SELECT * FROM ' . $this->tableBab .' INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel');
 		return $this->db->resultSet();
 	}
 
@@ -192,11 +192,11 @@ class adminModel{
 	}
 
 	public function tambahBab($data){
-		$query = "INSERT INTO bab(nama_mapel, jenjang_kelas, nama_bab, deskripsi_bab)
+		$query = "INSERT INTO bab(id_mapel, jenjang_kelas, nama_bab, deskripsi_bab)
 					VALUES
-					(:nama_mapel, :jenjang_kelas, :nama_bab, :deskripsi_bab)";
+					(:id_mapel, :jenjang_kelas, :nama_bab, :deskripsi_bab)";
 		$this->db->query($query);
-		$this->db->bind('nama_mapel', $data['nama_mapel']);
+		$this->db->bind('id_mapel', $data['id_mapel']);
 		$this->db->bind('jenjang_kelas', $data['jenjang_kelas']);
 		$this->db->bind('nama_bab', $data['nama_bab']);
 		$this->db->bind('deskripsi_bab', $data['deskripsi_bab']);
@@ -436,27 +436,25 @@ class adminModel{
 	}
 
 	public function getAllMapelTerdaftarBab($id){
-		$this->db->query("SELECT * FROM pilihan_bab LEFT JOIN mapel ON pilihan_bab.id_mapel = mapel.id_mapel 
-			LEFT JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa
-			LEFT JOIN bab ON pilihan_bab.id_bab = bab.id_bab
-			WHERE mapel.id_mapel = $id;");
+		$this->db->query("SELECT * FROM pilihan_bab INNER JOIN bab ON pilihan_bab.id_bab = bab.id_bab 
+INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel
+INNER JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa WHERE mapel.id_mapel = $id");
 		return $this->db->resultSet();
 	}
 
 	public function getAllMapelTerdaftarSub($id){
-		$this->db->query("SELECT * FROM pilihan_sub LEFT JOIN mapel ON pilihan_sub.id_mapel = mapel.id_mapel 
-			LEFT JOIN siswa ON pilihan_sub.id_siswa = siswa.id_siswa
-			LEFT JOIN sub_bab ON pilihan_sub.id_sub = sub_bab.id_sub
-			WHERE mapel.id_mapel = $id;");
+		$this->db->query("SELECT * FROM pilihan_sub INNER JOIN sub_bab ON pilihan_sub.id_sub = sub_bab.id_sub 
+INNER JOIN bab ON sub_bab.id_bab = bab.id_bab
+INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel
+INNER JOIN siswa ON pilihan_sub.id_siswa = siswa.id_siswa WHERE mapel.id_mapel = $id");
 		return $this->db->resultSet();
 	}
 
 	public function cariAllMapelTerdaftarBab($id){
 		$keyword = $_POST['keyword'];
-		$this->db->query("SELECT * FROM pilihan_bab LEFT JOIN mapel ON pilihan_bab.id_mapel = mapel.id_mapel 
-			LEFT JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa
-			LEFT JOIN bab ON pilihan_bab.id_bab = bab.id_bab
-			WHERE mapel.id_mapel = $id AND 
+		$this->db->query("SELECT * FROM pilihan_bab INNER JOIN bab ON pilihan_bab.id_bab = bab.id_bab 
+INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel
+INNER JOIN siswa ON pilihan_bab.id_siswa = siswa.id_siswa WHERE mapel.id_mapel = $id AND 
 			nama_bab LIKE '%$keyword%' 
 			OR nama_lengkap LIKE '%$keyword%'");
 		return $this->db->resultSet();
@@ -464,10 +462,10 @@ class adminModel{
 
 	public function cariAllMapelTerdaftarSub($id){
 		$keyword = $_POST['keyword'];
-		$this->db->query("SELECT * FROM pilihan_sub LEFT JOIN mapel ON pilihan_sub.id_mapel = mapel.id_mapel 
-			LEFT JOIN siswa ON pilihan_sub.id_siswa = siswa.id_siswa
-			LEFT JOIN sub_bab ON pilihan_sub.id_sub = sub_bab.id_sub
-			WHERE mapel.id_mapel = $id AND 
+		$this->db->query("SELECT * FROM pilihan_sub INNER JOIN sub_bab ON pilihan_sub.id_sub = sub_bab.id_sub 
+INNER JOIN bab ON sub_bab.id_bab = bab.id_bab
+INNER JOIN mapel ON bab.id_mapel = mapel.id_mapel
+INNER JOIN siswa ON pilihan_sub.id_siswa = siswa.id_siswa WHERE mapel.id_mapel = $id AND 
 			judul_sub LIKE '%$keyword%' 
 			OR nama_lengkap LIKE '%$keyword%'");
 		return $this->db->resultSet();

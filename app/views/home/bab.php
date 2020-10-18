@@ -45,15 +45,15 @@
                         <div class="uk-width-1-4@m uk-first-column"> 
                             <img alt="Image" class="uk-width-2-3 uk-margin-small-top uk-margin-small-bottom uk-border-circle uk-box-shadow-large  uk-animation-scale-up" src="<?= BASEURL ?>/images/avatures/instructor.jpg">
                             <div class="uk-text-small uk-margin-small-top">
-                                <p> <i class="fas fa-star"></i> <?= $data['pilihan']['COUNT(*)'] ?> Total Point </p>
+                                <p> <i class="fas fa-star"></i> <?= $data['guru']['poin'] ?> Total Point </p>
                                 <p> <i class="fas fa-comment-dots"></i>  89,072 Reviews </p>
                                 <p> <i class="fas fa-user"></i> <?= $data['pilihan']['COUNT(*)'] ?> Students </p>
-                                <p> <i class="fas fa-play"></i> Mengajar mata pelajaran <?= $data['guru']['mengajar_mapel'] ?> </p>
+                                <p> <i class="fas fa-play"></i> Mengajar <?= $data['guru']['nama_mapel'] ?> </p>
                             </div>                             
                         </div>
                         <div class="uk-width-3-4@m uk-padding-remove-left"> 
                             <h4 class="uk-margin-remove"> <?= $data['guru']['nama_lengkap'] ?> </h4> 
-                            <span class="uk-text-small">  <?= $data['guru']['mengajar_mapel'] ?> </span> 
+                            <span class="uk-text-small">  <?= $data['guru']['nama_mapel'] ?> </span> 
                             <hr class="uk-margin-small">
                             <p class="uk-margin-remove-top uk-margin-small-bottom">
                             	<b>Alamat :</b><br>
@@ -72,7 +72,7 @@
                     <div class="uk-child-width-1-4@m uk-child-width-1-2" uk-scrollspy="target: > div; cls:uk-animation-scale-up; delay: 200" uk-grid>
                     	<?php foreach ($data['siswa'] as $siswa): ?>
                         <div>
-                            <a href="Profile.html" class="uk-link-reset">
+                            <a href="<?php echo BASEURL ?>/home/profil/<?php echo $siswa['id_siswa'] ?>/<?php echo $siswa['id_bab'] ?>" class="uk-link-reset">
                                 <div class="uk-padding-remove uk-card-hover uk-card-body uk-width-large border-radius-6 uk-text-center"> 
                                     <img alt="Image" class="uk-width-1-2 uk-margin-top uk-margin-small-bottom uk-border-circle uk-align-center uk-box-shadow-large" src="<?= BASEURL ?>/images/avatures/avature-3.png">
                                     <h4 class="uk-margin-remove-bottom uk-margin-remove-top ">

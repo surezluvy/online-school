@@ -20,14 +20,14 @@ class Home extends Controller{
 		$this->view('templates/home/footer');
 	}
 
-	public function bab($id){
+	public function bab($idMapel, $idBab){
 		$data['color1'] = "";
 		$data['color2'] = "";
 
-		$data['bab'] = $this->model('homeModel')->babById($id);
-		$data['pilihan'] = $this->model('homeModel')->pilihan($id);
-		$data['guru'] = $this->model('homeModel')->guruBab();
-		$data['siswa'] = $this->model('homeModel')->siswaBab($id);
+		$data['bab'] = $this->model('homeModel')->babById($idBab);
+		$data['pilihan'] = $this->model('homeModel')->pilihan($idBab);
+		$data['guru'] = $this->model('homeModel')->guruBab($idMapel);
+		$data['siswa'] = $this->model('homeModel')->siswaBab($idBab);
 		$data['page'] = 'bab';
 
 		$this->view('templates/home/header', $data);
@@ -41,11 +41,23 @@ class Home extends Controller{
 
 		$data['bab'] = $this->model('homeModel')->babById($idKelas);
 		$data['tagByKelas'] = $this->model('homeModel')->tagByKelas($idKelas);
-		$data['tagByMapel'] = $this->model('homeModel')->tagByMapel($idMapel);
+		$data['tagByMapel'] = $this->model('homeModel')->tagByMapel($idKelas, $idMapel);
 		$data['byKelas'] = $idKelas;
 
 		$this->view('templates/home/header', $data);
 		$this->view('home/tag', $data);
+		$this->view('templates/home/footer');
+	}
+
+	public function profil($idSiswa, $idBab){
+		$data['color1'] = "style='color:#3e474f'";
+		$data['color2'] = "style='color:#728386'";
+
+		$data['profil'] = $this->model('homeModel')->profil($idSiswa, $idBab);
+		$data['profilBab'] = $this->model('homeModel')->profilBab($idSiswa, $idBab);
+
+		$this->view('templates/home/header', $data);
+		$this->view('home/profil', $data);
 		$this->view('templates/home/footer');
 	}
 }

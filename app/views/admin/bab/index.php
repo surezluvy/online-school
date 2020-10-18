@@ -19,9 +19,12 @@
                             <form method="POST" action="<?php echo BASEURL ?>/admin/tambahBab"> 
                                 <div class="uk-margin">
                                     <label> Nama Mapel </label>   
-                                    <select required="" class="uk-select" name="nama_mapel">
-                                        <option value="Matematika">Matematika</option>
-                                        <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+                                    <select required="" class="uk-select" name="id_mapel">
+                                        <?php foreach ($data['mapel'] as $mapel): ?>
+                                            
+                                            <option value="<?php echo $mapel['id_mapel'] ?>"><?php echo $mapel['nama_mapel'] ?></option>
+
+                                        <?php endforeach ?>
                                     </select>
                                 </div>       
                                 <div class="uk-margin">
